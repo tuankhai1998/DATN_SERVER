@@ -4,7 +4,8 @@ const roomModel = require('../model/room.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
-let refreshTokenSave = []
+const { getRoom } = require('../helpers')
+
 
 module.exports = {
     create: async (user) => {
@@ -54,15 +55,27 @@ module.exports = {
         let { password } = data
         if (password) {
             let newPassword = await bcrypt.hash(password, 12);
-            console.log(newPassword)
             data = { ...data, password: newPassword }
         }
-        console.log(data)
         try {
             let userUpdated = await userModel.findByIdAndUpdate({ _id }, { $set: { ...data } })
             return {
                 ...userUpdated._doc,
                 password: null
+            }
+        } catch (error) {
+            throw error
+        }
+    },
+
+    user: async (_id) => {
+        try {
+            let user = await userModel.findById({ _id })
+            return {
+                ...user._doc,
+                password: null,
+                created: await getRoom(user._doc.created),
+                liked: await getRoom(user._doc.liked)
             }
         } catch (error) {
             throw error

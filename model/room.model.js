@@ -27,11 +27,9 @@ const roomModel = new Schema({
     roomNum: Number,
     peoples: Number,
     price: {
-        water: Number,
-        electricity: Number,
-        room: Number,
-        internet: Number
-    }
+        type: Schema.Types.ObjectId,
+        ref: 'Prices'
+    },
 },
     { timestamps: { createdAt: 'created_at' } }
 )
