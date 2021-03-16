@@ -25,18 +25,25 @@ module.exports = {
 
     update: async (_id, data) => {
         try {
-            let roomUpdated = await roomModel.findByIdAndUpdate({ _id }, { $set: data })
+            let roomUpdated = await roomModel.findByIdAndUpdate({ _id }, { $set: data.room })
+            let priceUpdated = await priceModel.findByIdAndUpdate({ _id: roomUpdated._doc._id }, { $set: data.price })
             return {
                 ...roomModel._doc,
-                createdBy: getUserCreated(roomUpdated._doc.createdBy)
+                createdBy: getUserCreated(roomUpdated._doc.createdBy),
+                price: priceUpdated._doc
             }
         } catch (error) {
             throw error
         }
     },
 
-    currentRoom: () => {
-
+    currentRoom: async (_id) => {
+        try {
+            let room = await roomModel.findById({ _id }).populate('price');
+            return room
+        } catch (error) {
+            throw error
+        }
     },
 
     rooms: async (page, per_page) => {
@@ -50,5 +57,14 @@ module.exports = {
         } catch (error) {
             throw error
         }
-    }
+    },
+
+    delete: async (_id) => {
+        try {
+            let room = await roomModel.findOneAndDelete({ _id }).populate('price');
+            return room
+        } catch (error) {
+            throw error
+        }
+    },
 }

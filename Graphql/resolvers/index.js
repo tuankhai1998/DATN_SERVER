@@ -29,6 +29,10 @@ const resolvers = {
             let rooms = roomController.rooms(page, per_page)
             return rooms
 
+        },
+        room: (_, { _id }) => {
+            let room = roomController.currentRoom(_id)
+            return room
         }
     },
 
@@ -58,8 +62,8 @@ const resolvers = {
             return roomCreated
         },
         updateRoom: (_, args, context) => {
+            let data = JSON.parse(JSON.stringify(args));
             if (!context.isAuth) throw new AuthenticationError("Bạn cần đăng nhập")
-            let data = formatProperty(args)
             let roomUpdated = {}
             return roomUpdated
         }

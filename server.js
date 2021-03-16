@@ -38,7 +38,6 @@ async function startServer() {
         }
     });
     const app = express();
-
     server.applyMiddleware({ app });
 
 

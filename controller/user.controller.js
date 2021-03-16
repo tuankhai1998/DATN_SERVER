@@ -80,5 +80,27 @@ module.exports = {
         } catch (error) {
             throw error
         }
+    },
+
+    like: async (roomId, userId) => {
+        try {
+            let user = await userModel.findOneAndUpdate({ _id: userId }, { $push: { "liked": roomId } }, { upsert: true, new: true })
+            return user
+        } catch (error) {
+            throw error
+        }
+    },
+
+    refreshToken: async (accessToken, _id) => {
+        try {
+            let user = await userModel.findById({ _id })
+            if (user._doc.refreshToken === accessToken) {
+                let decodedToken = jwt.verify(accessToken, process.env.REFRESH_TOKEN_PASSWORD)
+
+                f
+            }
+        } catch (error) {
+
+        }
     }
 }

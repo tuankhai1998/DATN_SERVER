@@ -5,6 +5,7 @@ const typeDefs = gql`
     type Query {
         rooms : [Room]
         user : User
+        room (_id: ID!): Room
     }
 
     type Mutation {
@@ -13,7 +14,7 @@ const typeDefs = gql`
         updateUser(email: String, avatar: String , password: String) : User
 
         createRoom(room: roomInput!, price: priceInput ) : Room!
-        updateRoom(_id: ID!, data: roomInput) : Room!
+        updateRoom(_id: ID!, data: roomInput, price: priceInput) : Room!
     }
 
     type User {
