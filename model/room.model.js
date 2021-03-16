@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const roomModel = new Schema({
+    hired: {
+        type: Boolean,
+        default: false
+    },
     type: {
         type: Number,
         required: true

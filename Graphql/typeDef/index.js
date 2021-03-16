@@ -12,7 +12,8 @@ const typeDefs = gql`
         login(email : String!, password : String!) : User
         updateUser(email: String, avatar: String , password: String) : User
 
-        createRoom(room: roomInput!) : Room!
+        createRoom(room: roomInput!, price: priceInput ) : Room!
+        updateRoom(_id: ID!, data: roomInput) : Room!
     }
 
     type User {
@@ -40,6 +41,7 @@ const typeDefs = gql`
         price : Price!
         roomNum: Int!
         peoples: Int!
+        hired: Boolean
     }
 
     type Address {
@@ -49,10 +51,20 @@ const typeDefs = gql`
     }
 
     type Price {
-        water: Int
-        electricity: Int
-        room: Int
-        internet: Int
+        water: currentPriceOutput
+        electricity: currentPriceOutput
+        room: currentPriceOutput
+        internet: currentPriceOutput
+    }
+
+    input currentPrice {
+        free: Boolean
+        price: Int
+    }
+
+    type currentPriceOutput {
+        free: Boolean
+        price: Int
     }
 
     
@@ -63,21 +75,22 @@ const typeDefs = gql`
     }
 
     input priceInput {
-        water: Int
-        electricity: Int
-        room: Int
-        internet: Int
+        water: currentPrice
+        electricity: currentPrice
+        room: currentPrice
+        internet: currentPrice
     }
 
 
     input roomInput {
         sex: Int!
-        createdBy : ID!
+        type: Int!
+        createdBy : ID
         address : addressInput
         images : [String]!
-        price : priceInput!
         roomNum: Int!
         peoples: Int!
+        hired: Boolean
     }
 
 `;
