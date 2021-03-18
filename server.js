@@ -1,10 +1,12 @@
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
+const { ApolloServer, PubSub } = require('apollo-server-express');
 
 const typeDefs = require('./graphql/typeDef')
 const resolvers = require('./graphql/resolvers')
+
+const pubsub = new PubSub();
 
 async function startServer() {
     // connect database
@@ -20,11 +22,15 @@ async function startServer() {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
-        context: ({ req }) => {
+        context: ({ req, connection }) => {
             const authHeader = req.headers.authorization;
+
             if (!authHeader) return { isAuth: false }
 
             let token = authHeader.split(" ")[1]
+            if (connection) {
+                token = connection.context.authorization
+            }
 
             if (!token || token === "") return { isAuth: false }
 
@@ -34,7 +40,7 @@ async function startServer() {
             } catch (error) {
                 throw new Error(error)
             }
-            return { ...decodedToken, isAuth: true }
+            return { ...decodedToken, isAuth: true, pubsub }
         }
     });
     const app = express();

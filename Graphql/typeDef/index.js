@@ -6,15 +6,23 @@ const typeDefs = gql`
         rooms : [Room]
         user : User
         room (_id: ID!): Room
+        login(email : String!, password : String!) : User
+        messages(form: ID!): [Messages]
     }
 
     type Mutation {
         createUser(email: String!, password : String!) : User
-        login(email : String!, password : String!) : User
         updateUser(email: String, avatar: String , password: String) : User
 
         createRoom(room: roomInput!, price: priceInput ) : Room!
         updateRoom(_id: ID!, data: roomInput, price: priceInput) : Room!
+        deleteRoom(_id: ID!) : User!
+
+        sendMessage(data: messagesInput) : [Messages]
+    }
+
+    type Subscription {
+        newMessage: Messages!
     }
 
     type User {
@@ -92,6 +100,21 @@ const typeDefs = gql`
         roomNum: Int!
         peoples: Int!
         hired: Boolean
+    }
+
+    type Messages {
+        content: String,
+        from: ID,
+        to: ID,
+        read: Boolean,
+        created_at: String       
+    }
+
+    input messagesInput {
+        content: String,
+        from: ID,
+        to: ID,
+        read: Boolean,
     }
 
 `;

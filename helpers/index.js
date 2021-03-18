@@ -23,9 +23,22 @@ const getRoom = async (roomIds) => {
     }
 }
 
+const formatProperty = (object) => {
+    for (const key in object) {
+        if (Object.hasOwnProperty.call(object, key)) {
+            const element = object[key]
+            if (!element) delete object[key]
+        }
+    }
+
+    return object;
+}
+
+
 module.exports = {
     getUserCreated,
-    getRoom
+    getRoom,
+    formatProperty
 }
 
 

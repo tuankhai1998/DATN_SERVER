@@ -4,14 +4,15 @@ const roomModel = require('../model/room.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
-const { getRoom } = require('../helpers')
+const { getRoom } = require('../helpers');
+const { UserInputError } = require('apollo-server-errors');
 
 
 module.exports = {
     create: async (user) => {
         try {
             let checkUser = await userModel.findOne({ email: user.email })
-            if (checkUser) throw new Error("Email already exists")
+            if (checkUser) throw new UserInputError("Email already exists")
             let hashedPassword = await bcrypt.hash(user.password, 12)
             let newUser = new userModel({ ...user, password: hashedPassword })
             let token = await jwt.sign({ _id: newUser._doc._id, email: newUser._doc._email }, process.env.TOKEN_PASSWORD, { expiresIn: process.env.TOKEN_EXPIRATION })
@@ -32,9 +33,9 @@ module.exports = {
     login: async ({ email, password }) => {
         try {
             let checkUser = await userModel.findOne({ email })
-            if (!checkUser) throw new Error("Email not exists")
+            if (!checkUser) throw new UserInputError("Email not exists")
             const match = await bcrypt.compare(password, checkUser._doc.password);
-            if (!match) throw new Error("Incorrect password")
+            if (!match) throw new UserInputError("Incorrect password")
             let refreshToken = await jwt.sign({ _id: checkUser._doc._id }, process.env.REFRESH_TOKEN_PASSWORD, { expiresIn: `${process.env.REFRESH_TOKEN_EXPIRATION}h` })
             let token = await jwt.sign({ _id: checkUser._doc._id, email: checkUser._doc._email }, process.env.TOKEN_PASSWORD, { expiresIn: `${process.env.TOKEN_EXPIRATION}h` })
             await checkUser.update({}, { $set: { refreshToken } })
@@ -84,6 +85,11 @@ module.exports = {
 
     like: async (roomId, userId) => {
         try {
+            let checkRoomLiked = await userModel.findOne({ _id: userId, liked: roomId })
+            if (checkRoomLiked._doc) {
+                await checkRoomLiked.update({}, { $pull: { 'liked': roomId } })
+                return checkRoomLiked
+            }
             let user = await userModel.findOneAndUpdate({ _id: userId }, { $push: { "liked": roomId } }, { upsert: true, new: true })
             return user
         } catch (error) {
@@ -91,16 +97,19 @@ module.exports = {
         }
     },
 
-    refreshToken: async (accessToken, _id) => {
+    refreshToken: async (accessToken) => {
         try {
-            let user = await userModel.findById({ _id })
-            if (user._doc.refreshToken === accessToken) {
-                let decodedToken = jwt.verify(accessToken, process.env.REFRESH_TOKEN_PASSWORD)
-
-                f
+            let user = await userModel.findOne({ refreshToken: accessToken })
+            if (user) {
+                await jwt.verify(accessToken, process.env.REFRESH_TOKEN_PASSWORD)
+                let token = await jwt.sign({ _id: checkUser._doc._id, email: checkUser._doc._email }, process.env.TOKEN_PASSWORD, { expiresIn: `${process.env.TOKEN_EXPIRATION}h` })
+                return {
+                    ...user._doc,
+                    token
+                }
             }
         } catch (error) {
-
+            throw error
         }
     }
 }

@@ -2,7 +2,7 @@ const userModel = require('../model/user.model');
 const roomModel = require('../model/room.model');
 const priceModel = require('../model/price.model');
 
-const { getUserCreated } = require("../helpers")
+const { getUserCreated, getRoom } = require("../helpers")
 
 
 module.exports = {
@@ -59,10 +59,16 @@ module.exports = {
         }
     },
 
-    delete: async (_id) => {
+    delete: async (_id, userId) => {
         try {
-            let room = await roomModel.findOneAndDelete({ _id }).populate('price');
-            return room
+            let userUpdated = await userModel.findOneAndDelete({ _id }, { $pull: { created: _id } })
+            let roomDeleted = await roomModel.findOneAndDelete({ _id, createdBy: userId });
+            await priceModel.findByIdAndDelete({ _id: roomDeleted._doc.price })
+            return {
+                ...userUpdated._doc,
+                created: getRoom(userUpdated._doc.created),
+                liked: getRoom(userUpdated._doc.like)
+            }
         } catch (error) {
             throw error
         }
