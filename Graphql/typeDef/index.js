@@ -3,10 +3,10 @@ const { gql } = require("apollo-server-express");
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
     type Query {
-        rooms : [Room]
-        user : User
+        rooms: [Room]
+        user: User
         room (_id: ID!): Room
-        login(email : String!, password : String!) : User
+        login(email: String!, password: String!) : User
         messages(form: ID!): [Messages]
     }
 
@@ -18,45 +18,47 @@ const typeDefs = gql`
         updateRoom(_id: ID!, data: roomInput, price: priceInput) : Room!
         deleteRoom(_id: ID!) : User!
 
-        sendMessage(data: messagesInput) : [Messages]
+        sendMessage(data: messagesInput) : Messages
+        itRead(from: ID!, to: ID!) : [Messages]
     }
 
     type Subscription {
         newMessage: Messages!
+        readMessage: [Messages]
     }
 
     type User {
-        email : String
-        token : String
+        email: String
+        token: String
         _id: ID!
         refreshToken: String
         expiresIn: Int
         created: [Room]
-        liked : [Room]
+        liked: [Room]
     }
 
     input userInput {
-        email   : String 
-        avatar  : String
-        password : String
+        email: String 
+        avatar: String
+        password: String
     }
 
     type Room {
         _id: ID!
         sex: Int!
-        createdBy : User!
-        address : Address
-        images : [String]!
-        price : Price!
+        createdBy: User!
+        address: Address
+        images: [String]!
+        price: Price!
         roomNum: Int!
         peoples: Int!
         hired: Boolean
     }
 
     type Address {
-        longitude : Float
-        latitude : Float
-        name : String
+        longitude: Float
+        latitude: Float
+        name: String
     }
 
     type Price {
@@ -78,9 +80,9 @@ const typeDefs = gql`
 
     
     input addressInput {
-        longitude : Float
-        latitude : Float
-        name : String
+        longitude: Float
+        latitude: Float
+        name: String
     }
 
     input priceInput {
@@ -94,9 +96,9 @@ const typeDefs = gql`
     input roomInput {
         sex: Int!
         type: Int!
-        createdBy : ID
-        address : addressInput
-        images : [String]!
+        createdBy: ID
+        address: addressInput
+        images: [String]!
         roomNum: Int!
         peoples: Int!
         hired: Boolean

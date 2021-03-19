@@ -105,7 +105,9 @@ module.exports = {
                 let token = await jwt.sign({ _id: checkUser._doc._id, email: checkUser._doc._email }, process.env.TOKEN_PASSWORD, { expiresIn: `${process.env.TOKEN_EXPIRATION}h` })
                 return {
                     ...user._doc,
-                    token
+                    password: null,
+                    token,
+                    expiresIn: process.env.TOKEN_EXPIRATION
                 }
             }
         } catch (error) {

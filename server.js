@@ -1,12 +1,12 @@
-const jwt = require('jsonwebtoken');
+const http = require('http');
 const mongoose = require('mongoose');
 const express = require('express');
-const { ApolloServer, PubSub } = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server-express');
 
 const typeDefs = require('./graphql/typeDef')
-const resolvers = require('./graphql/resolvers')
+const resolvers = require('./graphql/resolvers');
+const contextMiddleware = require('./util/contextMiddleware');
 
-const pubsub = new PubSub();
 
 async function startServer() {
     // connect database
@@ -22,34 +22,18 @@ async function startServer() {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
-        context: ({ req, connection }) => {
-            const authHeader = req.headers.authorization;
-
-            if (!authHeader) return { isAuth: false }
-
-            let token = authHeader.split(" ")[1]
-            if (connection) {
-                token = connection.context.authorization
-            }
-
-            if (!token || token === "") return { isAuth: false }
-
-            let decodedToken
-            try {
-                decodedToken = jwt.verify(token, process.env.TOKEN_PASSWORD)
-            } catch (error) {
-                throw new Error(error)
-            }
-            return { ...decodedToken, isAuth: true, pubsub }
-        }
+        context: contextMiddleware,
+        subscriptions: { path: '/' }
     });
     const app = express();
     server.applyMiddleware({ app });
+    const httpServer = http.createServer(app);
+    server.installSubscriptionHandlers(httpServer);
 
-
-    app.listen({ port: PORT }, () => {
+    httpServer.listen(PORT, () => {
         console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`)
-    });
+        console.log(`🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`)
+    })
 }
 
 // start server
