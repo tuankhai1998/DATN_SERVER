@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "created": [
+    {
+      "$oid": "605174084b1b413fd44fdc36"
+    },
+    {
+      "$oid": "605174984b1b413fd44fdc38"
+    },
+    {
+      "$oid": "6051d30d5912f91ca4c12261"
+    },
+    {
+      "$oid": "6051d357e3f54b2390cf8b43"
+    },
+    {
+      "$oid": "6052bfed5e582b0b9407e885"
+    },
+    {
+      "$oid": "60530cf82f38c6321421c75d"
+    },
+    {
+      "$oid": "60530cfa2f38c6321421c75f"
+    },
+    {
+      "$oid": "60530d45a897cb309008de82"
+    },
+    {
+      "$oid": "605415762285ed1d943fe4e2"
+    },
+    {
+      "$oid": "605446f32b752a222ca55063"
+    }
+  ],
+  "liked": [],
+  "email": "khailt123",
+  "password": "$2b$12$q49qXjh6kAddKvA9muGudOuEY9jCn0hhZd/olfsggef6fcGOuR7Ui",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxNzNhMTRiMWI0MTNmZDQ0ZmRjMzQiLCJpYXQiOjE2MTU5NTA3NTMsImV4cCI6MTYxNTk1MDc1M30.GFWL7XAFa0L0vDt7w9vaDJErQMcYLEGvZuEKvt608xo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "created": [],
+  "liked": [],
+  "email": "khai123",
+  "password": "$2b$12$vqHbzSIHCpsIYVZPa0qrwuAfYlR5aXfzNMIjIDEEEMraZoJfkEBMS",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0NWE2Mzc5NDRjNjU4OWM5NWUwYjgiLCJpYXQiOjE2MTYxNDA4OTksImV4cCI6MTYxNjE0MDg5OX0.3kxajIsvARzhzgnem6-t_QZEPc-neKWZx5VXESVGJYs",
+  "__v": 0
+}]

@@ -1,0 +1,404 @@
+[{
+  "_id": {
+    "$oid": "605174084b1b413fd44fdc36"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "kasdfjas"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "605174084b1b413fd44fdc35"
+  },
+  "created_at": {
+    "$date": "2021-03-17T03:14:16.094Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-17T03:14:16.094Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "605174984b1b413fd44fdc38"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "sô 3, ngõ 82, duy tân "
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "605174984b1b413fd44fdc37"
+  },
+  "created_at": {
+    "$date": "2021-03-17T03:16:40.997Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-17T03:16:40.997Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6051d30d5912f91ca4c12261"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "sô 3, ngõ 82, duy tân "
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "6051d30d5912f91ca4c12260"
+  },
+  "created_at": {
+    "$date": "2021-03-17T09:59:41.441Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-17T09:59:41.441Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6051d357e3f54b2390cf8b43"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "39/31/luong ngoc quyen/ha dong/ha moi "
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "6051d357e3f54b2390cf8b42"
+  },
+  "created_at": {
+    "$date": "2021-03-17T10:00:55.513Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-17T10:00:55.513Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6051d738e3f54b2390cf8b45"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "39/31/luong ngoc quyen/ha dong/ha moi "
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "6051d738e3f54b2390cf8b44"
+  },
+  "created_at": {
+    "$date": "2021-03-17T10:17:28.613Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-17T10:17:28.613Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6051d7f7e3f54b2390cf8b47"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "39/31/luong ngoc quyen/ha dong/ha moi "
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "6051d7f7e3f54b2390cf8b46"
+  },
+  "created_at": {
+    "$date": "2021-03-17T10:20:39.609Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-17T10:20:39.609Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6052bfed5e582b0b9407e885"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "kasdfjas"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "6052bfed5e582b0b9407e884"
+  },
+  "created_at": {
+    "$date": "2021-03-18T02:50:21.412Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-18T02:50:21.412Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60530cf82f38c6321421c75d"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "kasdfjas"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "60530cf82f38c6321421c75c"
+  },
+  "created_at": {
+    "$date": "2021-03-18T08:19:04.154Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-18T08:19:04.154Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60530cfa2f38c6321421c75f"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "kasdfjas"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "60530cfa2f38c6321421c75e"
+  },
+  "created_at": {
+    "$date": "2021-03-18T08:19:06.880Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-18T08:19:06.880Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60530d0f2f38c6321421c761"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "kasdfjas"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "60530d0f2f38c6321421c760"
+  },
+  "created_at": {
+    "$date": "2021-03-18T08:19:27.756Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-18T08:19:27.756Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60530d45a897cb309008de82"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "kasdfjas"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "60530d45a897cb309008de81"
+  },
+  "created_at": {
+    "$date": "2021-03-18T08:20:21.958Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-18T08:20:21.958Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "605415762285ed1d943fe4e2"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "kasdfjas"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "605415762285ed1d943fe4e1"
+  },
+  "created_at": {
+    "$date": "2021-03-19T03:07:34.586Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-19T03:07:34.586Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "605446f32b752a222ca55063"
+  },
+  "hired": false,
+  "images": [
+    "aklsjdasdasd",
+    "asdhlkasdasd"
+  ],
+  "sex": 1,
+  "type": 1,
+  "address": {
+    "longitude": 122133,
+    "latitude": 21134123,
+    "name": "abc,xyz,bcn"
+  },
+  "roomNum": 2,
+  "peoples": 3,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "price": {
+    "$oid": "605446f32b752a222ca55062"
+  },
+  "created_at": {
+    "$date": "2021-03-19T06:38:43.412Z"
+  },
+  "updatedAt": {
+    "$date": "2021-03-19T06:38:43.412Z"
+  },
+  "__v": 0
+}]

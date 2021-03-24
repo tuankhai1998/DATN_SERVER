@@ -1,0 +1,154 @@
+[{
+  "_id": {
+    "$oid": "605174984b1b413fd44fdc37"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6051d30d5912f91ca4c12260"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6051d357e3f54b2390cf8b42"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6052bfed5e582b0b9407e884"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60530cf82f38c6321421c75c"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60530cfa2f38c6321421c75e"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60530d45a897cb309008de81"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "605415762285ed1d943fe4e1"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "605446f32b752a222ca55062"
+  },
+  "water": {
+    "free": true
+  },
+  "electricity": {
+    "free": true
+  },
+  "room": {
+    "free": true
+  },
+  "internet": {
+    "free": true
+  },
+  "__v": 0
+}]
