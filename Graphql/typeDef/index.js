@@ -8,6 +8,7 @@ const typeDefs = gql`
         room (_id: ID!): Room
         login(email: String!, password: String!) : User
         messages(form: ID!): [Messages]
+        localAddress: [localAddress]
     }
 
     type Mutation {
@@ -117,6 +118,24 @@ const typeDefs = gql`
         from: ID,
         to: ID,
         read: Boolean,
+    }
+
+    type localAddress {
+        code: String,
+        name: String,
+        districts: [Districts]
+    }
+
+    type streetsOrWards {
+        name: String,
+        prefix: String
+    }
+
+
+    type Districts {
+        name: String,
+        streets: [streetsOrWards],
+        wards: [streetsOrWards]
     }
 
 `;
