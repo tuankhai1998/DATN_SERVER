@@ -1,11 +1,13 @@
 const { AuthenticationError } = require("apollo-server-errors");
-const roomController = require("../../controller/room.controller")
+const roomController = require("../../controller/room.controller");
+const { formatProperty } = require("../../helpers");
 
 module.exports = {
     Query: {
         rooms: (_, args) => {
-            const { page, per_page } = args;
-            let rooms = roomController.rooms(page, per_page)
+            let data = JSON.parse(JSON.stringify(args));
+            let newDataSearch = formatProperty(data.query)
+            let rooms = roomController.rooms({ ...newDataSearch, page: data.page, per_page: data.per_page })
             return rooms
 
         },

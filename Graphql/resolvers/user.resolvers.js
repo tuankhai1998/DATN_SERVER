@@ -11,6 +11,7 @@ module.exports = {
             return user
         },
         login: (_, args) => {
+
             let user = userController.login({ email: args.email, password: args.password })
             return user
         },
