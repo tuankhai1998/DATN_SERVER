@@ -7,15 +7,13 @@ const { getUserCreated, getRoom } = require("../helpers")
 
 module.exports = {
     create: async (userId, data) => {
-
         let newRoom = new roomModel({ ...data.room, createdBy: userId, price: data.price })
         try {
-            await newRoom.save()
+            let createdRoom = await newRoom.save()
             await userModel.findByIdAndUpdate({ _id: userId }, { $push: { "created": newRoom._doc._id } }, { upsert: true, new: true })
             return {
-                ...newRoom._doc,
+                ...createdRoom._doc,
                 createdBy: getUserCreated(newRoom._doc.createdBy),
-                price: { ...price._doc }
             }
         } catch (error) {
             throw error

@@ -63,6 +63,7 @@ const typeDefs = gql`
         roomNum: Int!
         peoples: Int!
         hired: Boolean
+        type: Int!
     }
 
     type Address {
