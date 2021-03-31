@@ -5,7 +5,7 @@ const { formatProperty } = require("../../helpers")
 
 module.exports = {
     Query: {
-        user: (_, context) => {
+        user: (_, __, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let user = userController.user(context._id)
             return user

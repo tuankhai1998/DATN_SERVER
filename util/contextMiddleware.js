@@ -18,7 +18,7 @@ module.exports = (context) => {
 
     if (!token || token === "") return { isAuth: false }
 
-    let decodedToken
+
     try {
         decodedToken = jwt.verify(token, process.env.TOKEN_PASSWORD)
     } catch (error) {
