@@ -53,13 +53,18 @@ if (cluster.isMaster) {
         console.log('worker ' + newPID + ' born.');
 
     });
-} else { // worker
-    const initialStats = v8.getHeapStatistics();
+} else { 
+    // auxiliary function that translates size from bytes to MB's
+    let toMB = size => Math.round(size / 1024 / 1024 * 100) / 100;
 
-    const totalHeapSizeThreshold =
-        initialStats.heap_size_limit * 85 / 100;
+    // worker
+    const initialStats = v8.getHeapStatistics();
+    Object.keys(initialStats).forEach(key => initialStats[key] = toMB(initialStats[key]));
+
+    const totalHeapSizeThreshold = initialStats.heap_size_limit * 85 / 100;
     let detectHeapOverflow = () => {
         let stats = v8.getHeapStatistics();
+        Object.keys(stats).forEach(key => stats[key] = toMB(stats[key]));
         if ((stats.total_heap_size) > totalHeapSizeThreshold) {
             process.exit();
         }
