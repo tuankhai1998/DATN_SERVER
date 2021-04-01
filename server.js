@@ -17,7 +17,6 @@ async function startServer() {
         console.log(error)
     }
 
-
     // create server
     PORT = process.env.PORT || 5000;
     const server = new ApolloServer({
@@ -37,7 +36,6 @@ async function startServer() {
 
 // start server
 
-
 if (cluster.isMaster) {
     cluster.fork();
     cluster.on('exit', (deadWorker, code, signal) => {
@@ -53,7 +51,7 @@ if (cluster.isMaster) {
         console.log('worker ' + newPID + ' born.');
 
     });
-} else { 
+} else {
     // auxiliary function that translates size from bytes to MB's
     let toMB = size => Math.round(size / 1024 / 1024 * 100) / 100;
 

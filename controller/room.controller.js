@@ -13,7 +13,7 @@ module.exports = {
             await userModel.findByIdAndUpdate({ _id: userId }, { $push: { "created": newRoom._doc._id } }, { upsert: true, new: true })
             return {
                 ...createdRoom._doc,
-                createdBy: getUserCreated(newRoom._doc.createdBy),
+                createdBy: () => getUserCreated(newRoom._doc.createdBy),
             }
         } catch (error) {
             throw error
@@ -25,7 +25,7 @@ module.exports = {
             let roomUpdated = await roomModel.findByIdAndUpdate({ _id }, { $set: data.room })
             return {
                 ...roomModel._doc,
-                createdBy: getUserCreated(roomUpdated._doc.createdBy),
+                createdBy: () => getUserCreated(roomUpdated._doc.createdBy),
             }
         } catch (error) {
             throw error
@@ -61,7 +61,7 @@ module.exports = {
             let rooms = await roomModel.find({ ...dataSearch }).limit(per_page).skip(skip)
             return rooms.map(room => ({
                 ...room._doc,
-                createdBy: getUserCreated(room._doc.createdBy)
+                createdBy: () => getUserCreated(room._doc.createdBy)
             }))
         } catch (error) {
             throw error
@@ -74,8 +74,8 @@ module.exports = {
             await roomModel.findOneAndDelete({ _id, createdBy: userId });
             return {
                 ...userUpdated._doc,
-                created: getRoom(userUpdated._doc.created),
-                liked: getRoom(userUpdated._doc.like)
+                created: () => getRoom(userUpdated._doc.created),
+                liked: () => getRoom(userUpdated._doc.like)
             }
         } catch (error) {
             throw error

@@ -75,8 +75,8 @@ module.exports = {
             return {
                 ...user._doc,
                 password: null,
-                created: await getRoom(user._doc.created),
-                liked: await getRoom(user._doc.liked)
+                created: () => getRoom(user._doc.created),
+                liked: () => getRoom(user._doc.liked)
             }
         } catch (error) {
             throw error
