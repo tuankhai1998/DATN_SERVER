@@ -1,7 +1,6 @@
 const userModel = require('../model/user.model');
 const roomModel = require('../model/room.model');
 
-
 const { getUserCreated, getRoom } = require("../helpers")
 
 
@@ -42,25 +41,30 @@ module.exports = {
     },
 
     rooms: async (args) => {
-        let { page, per_page, sex, type, address, roomNum, peoples, maxPrice } = args;
+        let { page, per_page, sex, type, addressName, roomNum, peoples, maxPrice, sort, longitude, latitude } = args;
+
         let checkSearch = () => {
             let dataSearch = {};
             if (sex) dataSearch = { ...dataSearch, sex };
             if (type) dataSearch = { ...dataSearch, type };
-            if (address) dataSearch = { ...dataSearch, address };
             if (peoples) dataSearch = { ...dataSearch, peoples: { $gte: peoples } };
             if (maxPrice) dataSearch = { ...dataSearch, 'price.room.price': { $lte: maxPrice } };
             if (roomNum) dataSearch = { ...dataSearch, roomNum: { $gte: roomNum } };
             return dataSearch
         }
         let dataSearch = await checkSearch()
-
         if (!page) page = 0;
         let skip = page > 0 ? (page - 1) * per_page : page * per_page;
+
         try {
-            let rooms = await roomModel.find({ ...dataSearch }).limit(per_page).skip(skip)
+            let rooms;
+            if (addressName) {
+                rooms = await roomModel.find({ ...dataSearch, $text: { $search: addressName } }).sort(sort).limit(per_page).skip(skip)
+            }
+            else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
             return rooms.map(room => ({
                 ...room._doc,
+                createdAt: () => `${new Date(room._doc.createdAt)}`,
                 createdBy: () => getUserCreated(room._doc.createdBy)
             }))
         } catch (error) {

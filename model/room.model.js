@@ -49,7 +49,8 @@ const roomModel = new Schema({
         },
     },
 },
-    { timestamps: { createdAt: 'created_at' } }
+    { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' } }
 )
+roomModel.index({ 'address.name': 'text' })
 
 module.exports = model('Rooms', roomModel)

@@ -58,8 +58,7 @@ if (cluster.isMaster) {
     // worker
     const initialStats = v8.getHeapStatistics();
     Object.keys(initialStats).forEach(key => initialStats[key] = toMB(initialStats[key]));
-
-    const totalHeapSizeThreshold = initialStats.heap_size_limit * 85 / 100;
+    const totalHeapSizeThreshold = initialStats.heap_size_limit * 75 / 100;
     let detectHeapOverflow = () => {
         let stats = v8.getHeapStatistics();
         Object.keys(stats).forEach(key => stats[key] = toMB(stats[key]));

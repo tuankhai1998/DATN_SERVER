@@ -3,7 +3,7 @@ const { gql } = require("apollo-server-express");
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
     type Query {
-        rooms(query: roomSearch ,page: Int, per_page: Int): [Room]
+        rooms(query: roomSearch, sortBy: [sortBy] ,page: Int, per_page: Int ): [Room]
         user: User
         room (_id: ID!): Room
         login(email: String!, password: String!) : User
@@ -41,11 +41,19 @@ const typeDefs = gql`
     input roomSearch {
         sex: Int
         type: Int
-        address: addressInput
         roomNum: Int
         peoples: Int
         maxPrice: Int
+        addressName: String
+        longitude: Int,
+        latitude: Int
     }
+
+    input sortBy {
+        key: String,
+        value: Boolean
+    }
+
 
     input userInput {
         email: String 
@@ -64,6 +72,7 @@ const typeDefs = gql`
         peoples: Int!
         hired: Boolean
         type: Int!
+        createdAt: String
     }
 
     type Address {

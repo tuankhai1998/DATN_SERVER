@@ -6,8 +6,10 @@ module.exports = {
     Query: {
         rooms: (_, args) => {
             let data = JSON.parse(JSON.stringify(args));
-            let newDataSearch = formatProperty(data.query)
-            let rooms = roomController.rooms({ ...newDataSearch, page: data.page, per_page: data.per_page })
+            let { sortBy, query, page, per_page } = data;
+            let newDataSearch = formatProperty(query)
+            let sort = sortBy && sortBy.map(itemSort => ([`${itemSort.key}`, itemSort.value ? 1 : -1]))
+            let rooms = roomController.rooms({ ...newDataSearch, page, per_page, sort })
             return rooms
 
         },
