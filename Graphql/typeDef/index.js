@@ -1,6 +1,5 @@
 const { gql } = require("apollo-server-express");
 
-// Construct a schema, using GraphQL schema language
 const typeDefs = gql`
     type Query {
         rooms(query: roomSearch, sortBy: [sortBy] ,page: Int, per_page: Int ): [Room]
@@ -12,7 +11,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        createUser(email: String!, password : String!) : User
+        createUser(email: String!, password: String!) : User
         updateUser(email: String, avatar: String , password: String) : User
 
         createRoom(room: roomInput!, price: priceInput ) : Room!
@@ -44,8 +43,8 @@ const typeDefs = gql`
         roomNum: Int
         peoples: Int
         maxPrice: Int
-        addressName: String
-        longitude: Int,
+        addressName: addressNameInput
+        longitude: Int
         latitude: Int
     }
 
@@ -53,7 +52,6 @@ const typeDefs = gql`
         key: String,
         value: Boolean
     }
-
 
     input userInput {
         email: String 
@@ -78,8 +76,24 @@ const typeDefs = gql`
     type Address {
         longitude: Float
         latitude: Float
-        name: String
+        name: addressName
     }
+
+    type addressName {
+        city: String,
+        districts: String,
+        wardsAndStreet: String,
+        any: String
+    }
+
+    input addressNameInput {
+        city: String,
+        districts: String,
+        wardsAndStreet: String,
+        any: String
+    }
+
+
 
     type Price {
         water: currentPriceOutput
@@ -102,7 +116,7 @@ const typeDefs = gql`
     input addressInput {
         longitude: Float
         latitude: Float
-        name: String
+        name: addressNameInput
     }
 
     input priceInput {
@@ -111,7 +125,6 @@ const typeDefs = gql`
         room: currentPrice
         internet: currentPrice
     }
-
 
     input roomInput {
         sex: Int!
@@ -149,7 +162,6 @@ const typeDefs = gql`
         name: String,
         prefix: String
     }
-
 
     type Districts {
         name: String,
