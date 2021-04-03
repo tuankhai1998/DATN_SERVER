@@ -59,9 +59,11 @@ module.exports = {
         try {
             let rooms;
             if (addressName) {
-                rooms = await roomModel.find({ ...dataSearch, $text: { $search: addressName } }).sort(sort).limit(per_page).skip(skip)
+                rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip)
             }
             else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
+
+            console.log(rooms)
             return rooms.map(room => ({
                 ...room._doc,
                 createdAt: () => `${new Date(room._doc.createdAt)}`,
