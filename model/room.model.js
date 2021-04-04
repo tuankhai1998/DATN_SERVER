@@ -16,7 +16,12 @@ const roomModel = new Schema({
     address: {
         longitude: Number,
         latitude: Number,
-        name: String
+        name: {
+            city: String,
+            districts: String,
+            wardsAndStreet: String,
+            any: String
+        }
     },
     createdBy: {
         type: Schema.Types.ObjectId,
@@ -51,6 +56,6 @@ const roomModel = new Schema({
 },
     { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' } }
 )
-roomModel.index({ 'address.name': 'text' })
+roomModel.index({ 'address.name.$**': 'text' })
 
 module.exports = model('Rooms', roomModel)
