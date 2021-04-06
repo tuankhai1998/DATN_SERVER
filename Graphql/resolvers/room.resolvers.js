@@ -8,9 +8,14 @@ module.exports = {
             let data = JSON.parse(JSON.stringify(args));
             let { sortBy, query, page, per_page } = data;
             let newDataSearch = formatProperty(query)
-            let { addressName } = newDataSearch;
-            if (addressName) {
-                let newAddressName = formatProperty(addressName);
+
+
+
+
+            if (newDataSearch && newDataSearch.addressName) {
+
+
+                let newAddressName = formatProperty(newDataSearch.addressName);
                 newDataSearch.addressName = newAddressName;
             }
             let sort = sortBy && sortBy.map(itemSort => ([`${itemSort.key}`, itemSort.value ? 1 : -1]))

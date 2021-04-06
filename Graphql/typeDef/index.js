@@ -93,8 +93,6 @@ const typeDefs = gql`
         any: String
     }
 
-
-
     type Price {
         water: currentPriceOutput
         electricity: currentPriceOutput
