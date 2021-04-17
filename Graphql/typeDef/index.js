@@ -44,8 +44,8 @@ const typeDefs = gql`
         peoples: Int
         maxPrice: Int
         addressName: addressNameInput
-        longitude: Int
-        latitude: Int
+        longitude: Float
+        latitude: Float
     }
 
     input sortBy {
@@ -74,11 +74,18 @@ const typeDefs = gql`
     }
 
     type Address {
-        longitude: Float
-        latitude: Float
+        loc: loc
         name: addressName
     }
 
+    input locInput{
+        coordinates: [Float]
+    }
+
+    type loc{
+        coordinates: [Float]
+    }
+   
     type addressName {
         city: String,
         districts: String,
@@ -112,8 +119,7 @@ const typeDefs = gql`
 
     
     input addressInput {
-        longitude: Float
-        latitude: Float
+        loc: locInput
         name: addressNameInput
     }
 

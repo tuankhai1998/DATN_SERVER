@@ -14,8 +14,13 @@ const roomModel = new Schema({
         required: true
     },
     address: {
-        longitude: Number,
-        latitude: Number,
+        loc: {
+            type: {
+                type: String,
+                default: 'Point'
+            },
+            coordinates: [Number]
+        },
         name: {
             city: String,
             districts: String,
@@ -56,6 +61,6 @@ const roomModel = new Schema({
 },
     { timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' } }
 )
-roomModel.index({ 'address.name.$**': 'text' })
+roomModel.index({ 'address.loc': "2dsphere" })
 
 module.exports = model('Rooms', roomModel)

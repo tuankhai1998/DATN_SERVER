@@ -51,6 +51,7 @@ module.exports = {
             if (roomNum) dataSearch = { ...dataSearch, roomNum: { $gte: roomNum } };
             return dataSearch
         }
+
         let dataSearch = await checkSearch()
         if (!page) page = 0;
         let skip = page > 0 ? (page - 1) * per_page : page * per_page;
@@ -72,10 +73,29 @@ module.exports = {
             let rooms;
             if (addressName) {
                 rooms = await roomModel.find({ ...dataSearch, ...addressNameSearch }).sort(sort).limit(per_page).skip(skip)
-            }
-            else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
+            } else if (longitude && latitude) {
+                rooms = await roomModel.aggregate(
+                    [
+                        {
+                            "$geoNear": {
+                                "near": {
+                                    "type": "Point",
+                                    "coordinates": [longitude, latitude]
+                                },
+                                "distanceField": "distance",
+                                "spherical": true,
+                                "maxDistance": 1000
+                            }
+                        }
+                    ]
+                )
+                return rooms.map(room => ({
+                    ...room,
+                    createdAt: () => `${new Date(room._doc.createdAt)}`,
+                    createdBy: () => getUserCreated(room._doc.createdBy)
+                }))
+            } else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
 
-            console.log(rooms)
             return rooms.map(room => ({
                 ...room._doc,
                 createdAt: () => `${new Date(room._doc.createdAt)}`,

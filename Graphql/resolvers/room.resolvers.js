@@ -8,13 +8,7 @@ module.exports = {
             let data = JSON.parse(JSON.stringify(args));
             let { sortBy, query, page, per_page } = data;
             let newDataSearch = formatProperty(query)
-
-
-
-
             if (newDataSearch && newDataSearch.addressName) {
-
-
                 let newAddressName = formatProperty(newDataSearch.addressName);
                 newDataSearch.addressName = newAddressName;
             }
@@ -33,6 +27,7 @@ module.exports = {
         // room handle
         createRoom: (_, args, context) => {
             let data = JSON.parse(JSON.stringify(args));
+            console.log(data)
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let roomCreated = roomController.create(context._id, data)
             return roomCreated
@@ -40,7 +35,7 @@ module.exports = {
         updateRoom: (_, args, context) => {
             let data = JSON.parse(JSON.stringify(args));
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let roomUpdated = {}
+            let roomUpdated = roomController.update(context._id, data)
             return roomUpdated
         },
         deleteRoom: (_, { _id }, context) => {
