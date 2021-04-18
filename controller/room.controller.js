@@ -20,10 +20,11 @@ module.exports = {
     },
 
     update: async (_id, data) => {
+
         try {
-            let roomUpdated = await roomModel.findByIdAndUpdate({ _id }, { $set: data.room })
+            let roomUpdated = await roomModel.findByIdAndUpdate({ _id }, { $set: data })
             return {
-                ...roomModel._doc,
+                ...roomUpdated._doc,
                 createdBy: () => getUserCreated(roomUpdated._doc.createdBy),
             }
         } catch (error) {
@@ -84,11 +85,14 @@ module.exports = {
                                 },
                                 "distanceField": "distance",
                                 "spherical": true,
-                                "maxDistance": 1000
-                            }
-                        }
+                                "maxDistance": 1000,
+                            },
+
+                        },
+                        { "$sort": { "distance": 1 } },
                     ]
-                )
+                ).limit(per_page).skip(skip)
+
                 return rooms.map(room => ({
                     ...room,
                     createdAt: () => `${new Date(room._doc.createdAt)}`,

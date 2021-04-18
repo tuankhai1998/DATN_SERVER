@@ -27,15 +27,15 @@ module.exports = {
         // room handle
         createRoom: (_, args, context) => {
             let data = JSON.parse(JSON.stringify(args));
-            console.log(data)
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let roomCreated = roomController.create(context._id, data)
             return roomCreated
         },
         updateRoom: (_, args, context) => {
             let data = JSON.parse(JSON.stringify(args));
+            let room = { ...data.data, price: { ...data.price } }
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let roomUpdated = roomController.update(context._id, data)
+            let roomUpdated = roomController.update(data._id, room)
             return roomUpdated
         },
         deleteRoom: (_, { _id }, context) => {

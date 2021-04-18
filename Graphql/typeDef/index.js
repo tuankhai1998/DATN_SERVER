@@ -131,13 +131,13 @@ const typeDefs = gql`
     }
 
     input roomInput {
-        sex: Int!
-        type: Int!
+        sex: Int
+        type: Int
         createdBy: ID
         address: addressInput
-        images: [String]!
-        roomNum: Int!
-        peoples: Int!
+        images: [String]
+        roomNum: Int
+        peoples: Int
         hired: Boolean
     }
 
