@@ -1,5 +1,4 @@
 const localAddressModel = require('../model/localAddress.model');
-const data = require('../DB/data')
 module.exports = {
     getLocalAddress: async () => {
         try {

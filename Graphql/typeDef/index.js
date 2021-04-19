@@ -13,6 +13,7 @@ const typeDefs = gql`
     type Mutation {
         createUser(email: String!, password: String!) : User
         updateUser(email: String, avatar: String , password: String) : User
+        likedRoom(_idRoom: ID!) : User
 
         createRoom(room: roomInput!, price: priceInput ) : Room!
         updateRoom(_id: ID!, data: roomInput, price: priceInput) : Room!

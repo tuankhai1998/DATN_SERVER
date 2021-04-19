@@ -11,7 +11,6 @@ module.exports = {
             return user
         },
         login: (_, args) => {
-
             let user = userController.login({ email: args.email, password: args.password })
             return user
         },
@@ -29,5 +28,12 @@ module.exports = {
             let userAfterUpdate = userController.update(context._id, data)
             return userAfterUpdate
         },
+
+        likedRoom: (_, args, context) => {
+            if (!context.isAuth) throw new AuthenticationError("unauthorized")
+            let data = JSON.parse(JSON.stringify(args))
+            let userAfterUpdate = userController.like(context._id, data)
+            return userAfterUpdate
+        }
     }
 }
