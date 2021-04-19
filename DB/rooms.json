@@ -1,638 +1,335 @@
-[
-  {
-    "_id": {
-      "$oid": "606575006a24a1289c60a38e"
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 1,
-    "type": 1,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:23:44.405Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:23:44.405Z"
-    },
-    "__v": 0
+[{
+  "_id": {
+    "$oid": "607a90268031f40c14f0b563"
   },
-  {
-    "_id": {
-      "$oid": "606576be54d0a341b81fad10"
+  "address": {
+    "loc": {
+      "type": "Point",
+      "coordinates": [
+        105.76935,
+        20.85184
+      ]
     },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 1,
-    "type": 1,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:31:10.571Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:31:10.571Z"
-    },
-    "__v": 0
+    "name": {
+      "city": "Hà Nội",
+      "districts": "Thanh Oai",
+      "wardsAndStreet": "Cao Dương",
+      "any": "139, Thôn Mới"
+    }
   },
-  {
-    "_id": {
-      "$oid": "606576f354d0a341b81fad11"
+  "price": {
+    "water": {
+      "free": true
     },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
+    "electricity": {
+      "free": true
     },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 1,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
+    "room": {
+      "price": 5000000
     },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:32:03.324Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:32:03.324Z"
-    },
-    "__v": 0
+    "internet": {
+      "free": true
+    }
   },
-  {
-    "_id": {
-      "$oid": "6065779a54d0a341b81fad12"
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:34:50.752Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:34:50.752Z"
-    },
-    "__v": 0
+  "hired": false,
+  "images": [
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240"
+  ],
+  "sex": 1,
+  "type": 1,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
   },
-  {
-    "_id": {
-      "$oid": "606578625005860cb83e4f69"
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:38:10.724Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:38:10.724Z"
-    },
-    "__v": 0
+  "roomNum": 2,
+  "peoples": 2,
+  "createdAt": {
+    "$date": "2021-04-17T07:37:10.463Z"
   },
-  {
-    "_id": {
-      "$oid": "60657894e6ad3a3f3cfa544f"
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:39:00.484Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:39:00.484Z"
-    },
-    "__v": 0
+  "updatedAt": {
+    "$date": "2021-04-17T07:37:10.463Z"
   },
-  {
-    "_id": {
-      "$oid": "606579b1dbcc9338a0f0824f"
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:43:45.338Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:43:45.338Z"
-    },
-    "__v": 0
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607a902f8031f40c14f0b564"
   },
-  {
-    "_id": {
-      "$oid": "60657b971ee2721320e9cf3a"
+  "address": {
+    "loc": {
+      "type": "Point",
+      "coordinates": [
+        105.76933,
+        20.85184
+      ]
     },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:51:51.194Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:51:51.194Z"
-    },
-    "__v": 0
+    "name": {
+      "city": "Hà Nội",
+      "districts": "Thanh Oai",
+      "wardsAndStreet": "Cao Dương",
+      "any": "139, Thôn Mới"
+    }
   },
-  {
-    "_id": {
-      "$oid": "60657ca3b58aac2ec47e2f5c"
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T07:56:19.539Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T07:56:19.539Z"
-    },
-    "__v": 0
+  "price": {
+    "water": {
+      "free": false,
+      "price": 2000
+    }
   },
-  {
-    "_id": {
-      "$oid": "60657e3f5de3ab47d82b9898"
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-01T08:03:11.353Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-01T08:03:11.353Z"
-    },
-    "__v": 0
+  "hired": false,
+  "images": [
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240"
+  ],
+  "sex": 2,
+  "type": 1,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
   },
-  {
-    "_id": {
-      "$oid": "60657e6653e6261bd0d5679e"
-    },
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
-    },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
-    },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
-    },
-    "createdAt": {
-      "$date": "2021-04-02T09:20:21.429Z"
-    },
-    "updatedAt": {
-      "$date": "2021-04-02T09:20:21.429Z"
-    },
-    "__v": 0
+  "roomNum": 2,
+  "peoples": 2,
+  "createdAt": {
+    "$date": "2021-04-17T07:37:19.928Z"
   },
-  {
-    "_id": {
-      "$oid": "6066e1d58485232920050f82"
+  "updatedAt": {
+    "$date": "2021-04-18T15:00:24.611Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607a90398031f40c14f0b565"
+  },
+  "address": {
+    "loc": {
+      "type": "Point",
+      "coordinates": [
+        105.76953,
+        20.85173
+      ]
     },
-    "address": {
-      "name": {
-        "city": "Hà Nội",
-        "districts": "Thanh Oai",
-        "wardsAndStreet": "Cao Dương",
-        "any": "139, Thôn Mới"
-      },
-      "longitude": 105.76935,
-      "latitude": 20.85184
+    "name": {
+      "city": "Hà Nội",
+      "districts": "Thanh Oai",
+      "wardsAndStreet": "Cao Dương",
+      "any": "139, Thôn Mới"
+    }
+  },
+  "price": {
+    "water": {
+      "free": true
     },
-    "price": {
-      "water": {
-        "free": true
-      },
-      "electricity": {
-        "free": true
-      },
-      "room": {
-        "price": 5000000
-      },
-      "internet": {
-        "free": true
-      }
+    "electricity": {
+      "free": true
     },
-    "hired": false,
-    "images": [
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240",
-      "https://loremflickr.com/320/240"
-    ],
-    "sex": 2,
-    "type": 3,
-    "roomNum": 2,
-    "peoples": 3,
-    "createdBy": {
-      "$oid": "60545a637944c6589c95e0b8"
+    "room": {
+      "price": 5000000
     },
-    "createdAt": {
-      "$date": "2021-04-02T09:20:21.429Z"
+    "internet": {
+      "free": true
+    }
+  },
+  "hired": false,
+  "images": [
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240"
+  ],
+  "sex": 1,
+  "type": 1,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "roomNum": 2,
+  "peoples": 2,
+  "createdAt": {
+    "$date": "2021-04-17T07:37:29.738Z"
+  },
+  "updatedAt": {
+    "$date": "2021-04-17T07:37:29.738Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607ada75d8c5d129b0c2b617"
+  },
+  "address": {
+    "loc": {
+      "type": "Point",
+      "coordinates": [
+        105.86903,
+        20.45174
+      ]
     },
-    "updatedAt": {
-      "$date": "2021-04-02T09:20:21.429Z"
+    "name": {
+      "city": "Hà Nội",
+      "districts": "Thanh Oai",
+      "wardsAndStreet": "Cao Dương",
+      "any": "139, Thôn Mới"
+    }
+  },
+  "price": {
+    "water": {
+      "free": true
     },
-    "__v": 0
-  }
-]
+    "electricity": {
+      "free": true
+    },
+    "room": {
+      "price": 5000000
+    },
+    "internet": {
+      "free": true
+    }
+  },
+  "hired": false,
+  "images": [
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240"
+  ],
+  "sex": 1,
+  "type": 1,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "roomNum": 2,
+  "peoples": 2,
+  "createdAt": {
+    "$date": "2021-04-17T12:54:13.712Z"
+  },
+  "updatedAt": {
+    "$date": "2021-04-17T12:54:13.712Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607ada85d8c5d129b0c2b618"
+  },
+  "address": {
+    "loc": {
+      "type": "Point",
+      "coordinates": [
+        105.86933,
+        20.45174
+      ]
+    },
+    "name": {
+      "city": "Hà Nội",
+      "districts": "Thanh Oai",
+      "wardsAndStreet": "Cao Dương",
+      "any": "139, Thôn Mới"
+    }
+  },
+  "price": {
+    "water": {
+      "free": true
+    },
+    "electricity": {
+      "free": true
+    },
+    "room": {
+      "price": 5000000
+    },
+    "internet": {
+      "free": true
+    }
+  },
+  "hired": false,
+  "images": [
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240"
+  ],
+  "sex": 1,
+  "type": 1,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "roomNum": 2,
+  "peoples": 2,
+  "createdAt": {
+    "$date": "2021-04-17T12:54:29.614Z"
+  },
+  "updatedAt": {
+    "$date": "2021-04-17T12:54:29.614Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607ada90d8c5d129b0c2b619"
+  },
+  "address": {
+    "loc": {
+      "type": "Point",
+      "coordinates": [
+        106.86933,
+        20.45174
+      ]
+    },
+    "name": {
+      "city": "Hà Nội",
+      "districts": "Thanh Oai",
+      "wardsAndStreet": "Cao Dương",
+      "any": "139, Thôn Mới"
+    }
+  },
+  "price": {
+    "water": {
+      "free": true
+    },
+    "electricity": {
+      "free": true
+    },
+    "room": {
+      "price": 5000000
+    },
+    "internet": {
+      "free": true
+    }
+  },
+  "hired": false,
+  "images": [
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240",
+    "https://loremflickr.com/320/240"
+  ],
+  "sex": 1,
+  "type": 1,
+  "createdBy": {
+    "$oid": "605173a14b1b413fd44fdc34"
+  },
+  "roomNum": 2,
+  "peoples": 2,
+  "createdAt": {
+    "$date": "2021-04-17T12:54:40.198Z"
+  },
+  "updatedAt": {
+    "$date": "2021-04-17T12:54:40.198Z"
+  },
+  "__v": 0
+}]
