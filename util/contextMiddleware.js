@@ -9,13 +9,12 @@ module.exports = (context) => {
     if (connection) {
         token = connection.context.Authorization.split(" ")[1]
     } else {
-        const authHeader = req.headers.authorization;
+        const authHeader = req?.headers?.authorization;
         if (!authHeader) return { isAuth: false }
         token = authHeader.split(" ")[1]
     }
 
     if (!token || token === "") return { isAuth: false }
-
 
     try {
         decodedToken = jwt.verify(token, process.env.TOKEN_PASSWORD)

@@ -83,18 +83,16 @@ module.exports = {
         }
     },
 
-    liked: async (roomId, userId) => {
+    liked: async (userId, roomId) => {
         try {
             let checkRoomLiked = await userModel.findOne({ _id: userId, liked: roomId })
-            if (checkRoomLiked._doc) {
-                let userUpdated = await checkRoomLiked.update({}, { $pull: { 'liked': roomId } })
-                return {
-                    ...userUpdated._doc,
-                    created: () => getRoom(userUpdated._doc.created),
-                    liked: () => getRoom(userUpdated._doc.liked)
-                }
+            if (!!checkRoomLiked) {
+                await userModel.updateOne({ _id: userId }, { $pull: { "liked": roomId } })
             }
-            let user = await userModel.findOneAndUpdate({ _id: userId }, { $push: { "liked": roomId } }, { upsert: true, new: true })
+            else {
+                await userModel.findOneAndUpdate({ _id: userId }, { $push: { "liked": roomId } }, { upsert: true, new: true })
+            }
+            let user = await userModel.findOne({ _id: userId })
             return {
                 ...user._doc,
                 created: () => getRoom(user._doc.created),
