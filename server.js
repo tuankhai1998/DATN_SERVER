@@ -23,6 +23,7 @@ async function startServer() {
         typeDefs,
         resolvers,
         context: contextMiddleware,
+        dataSources: () => ({}),
         subscriptions: { path: '/' }
     });
     const app = express();
