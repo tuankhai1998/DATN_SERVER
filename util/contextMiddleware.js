@@ -21,7 +21,7 @@ module.exports = (context) => {
     try {
         decodedToken = jwt.verify(token, process.env.TOKEN_PASSWORD)
     } catch (error) {
-        throw new Error(error)
+        return { isAuth: false }
     }
 
     return { ...decodedToken, isAuth: true, pubsub }

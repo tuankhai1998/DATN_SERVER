@@ -6,12 +6,8 @@ const { formatProperty } = require("../../helpers")
 module.exports = {
     Query: {
         user: (_, __, context) => {
-            console.log(context)
-
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-
             let user = userController.user(context._id)
-            console.log(user)
             return user
         },
         login: (_, args) => {
@@ -35,10 +31,8 @@ module.exports = {
         },
 
         likedRoom: (_, args, context) => {
-
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let data = JSON.parse(JSON.stringify(args))
-            console.log(data)
             let userAfterUpdate = userController.liked(context._id, data._idRoom)
             return userAfterUpdate
         }

@@ -47,6 +47,7 @@ const typeDefs = gql`
         addressName: addressNameInput
         longitude: Float
         latitude: Float
+        multiDistricts: [String]
     }
 
     input sortBy {

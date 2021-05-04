@@ -42,7 +42,7 @@ module.exports = {
     },
 
     rooms: async (args) => {
-        let { page, per_page, sex, type, addressName, roomNum, peoples, maxPrice, sort, longitude, latitude } = args;
+        let { page, per_page, sex, type, addressName, roomNum, peoples, maxPrice, sort, longitude, latitude, multiDistricts } = args;
         let checkSearch = () => {
             let dataSearch = {};
             if (sex) dataSearch = { ...dataSearch, sex };
@@ -60,11 +60,10 @@ module.exports = {
             let addressSearch = {};
             if (addressName) {
                 let { city, districts, wardsAndStreet, any } = addressName;
-                if (city) return addressSearch = { 'address.name.city': city };
-                if (districts) return addressSearch = { ...addressSearch, 'address.name.districts': districts };
-                if (wardsAndStreet) return addressSearch = { ...addressSearch, 'address.name.wardsAndStreet': wardsAndStreet };
+                if (city) addressSearch = { 'address.name.city': city };
+                if (districts) addressSearch = { ...addressSearch, 'address.name.districts': districts };
+                if (wardsAndStreet) addressSearch = { ...addressSearch, 'address.name.wardsAndStreet': wardsAndStreet };
             }
-
             return addressSearch;
         }
 
@@ -98,7 +97,12 @@ module.exports = {
                     createdAt: () => `${new Date(room._doc.createdAt)}`,
                     createdBy: () => getUserCreated(room._doc.createdBy)
                 }))
-            } else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
+            } else if (multiDistricts) {
+                rooms = await roomModel.find({ 'address.name.districts': { $in: [...multiDistricts] }, ...dataSearch }).sort(sort).limit(per_page).skip(skip)
+            }
+            else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
+
+            console.log(rooms)
 
             return rooms.map(room => ({
                 ...room._doc,
