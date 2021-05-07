@@ -20,7 +20,6 @@ module.exports = {
     },
 
     update: async (_id, data) => {
-
         try {
             let roomUpdated = await roomModel.findByIdAndUpdate({ _id }, { $set: data })
             return {
@@ -42,13 +41,15 @@ module.exports = {
     },
 
     rooms: async (args) => {
-        let { page, per_page, sex, type, addressName, roomNum, peoples, maxPrice, sort, longitude, latitude, multiDistricts } = args;
+        let { page, per_page, sex, type, addressName, roomNum, peoples, maxPrice, minPrice, sort, longitude, latitude, multiDistricts } = args;
+
         let checkSearch = () => {
             let dataSearch = {};
             if (sex) dataSearch = { ...dataSearch, sex };
             if (type) dataSearch = { ...dataSearch, type };
             if (peoples) dataSearch = { ...dataSearch, peoples: { $gte: peoples } };
-            if (maxPrice) dataSearch = { ...dataSearch, 'price.room.price': { $lte: maxPrice } };
+            if (maxPrice) dataSearch = { ...dataSearch, 'price.room.price': { $lte: maxPrice * 1000000 } };
+            if (minPrice) dataSearch = { ...dataSearch, 'price.room.price': { $get: minPrice * 1000000 } };
             if (roomNum) dataSearch = { ...dataSearch, roomNum: { $gte: roomNum } };
             return dataSearch
         }
@@ -101,9 +102,6 @@ module.exports = {
                 rooms = await roomModel.find({ 'address.name.districts': { $in: [...multiDistricts] }, ...dataSearch }).sort(sort).limit(per_page).skip(skip)
             }
             else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
-
-            console.log(rooms)
-
             return rooms.map(room => ({
                 ...room._doc,
                 createdAt: () => `${new Date(room._doc.createdAt)}`,

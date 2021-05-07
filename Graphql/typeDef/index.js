@@ -44,10 +44,12 @@ const typeDefs = gql`
         roomNum: Int
         peoples: Int
         maxPrice: Int
+        minPrice: Int
         addressName: addressNameInput
         longitude: Float
         latitude: Float
-        multiDistricts: [String]
+        multiDistricts: [String],
+        utilities: [Int]
     }
 
     input sortBy {
@@ -73,6 +75,7 @@ const typeDefs = gql`
         hired: Boolean
         type: Int!
         createdAt: String
+        utilities: [Int]
     }
 
     type Address {
@@ -141,6 +144,7 @@ const typeDefs = gql`
         roomNum: Int
         peoples: Int
         hired: Boolean
+        utilities: [Int]
     }
 
     type Messages {
