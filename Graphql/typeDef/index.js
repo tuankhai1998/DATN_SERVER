@@ -21,7 +21,15 @@ const typeDefs = gql`
 
         sendMessage(data: messagesInput) : Messages
         itRead(from: ID!, to: ID!) : [Messages]
+
+        singleImageUpload(file: Upload!): Image!
     }
+
+
+    type Image {
+       url: String!
+    }
+
 
     type Subscription {
         newMessage: Messages!

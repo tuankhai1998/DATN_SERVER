@@ -1,4 +1,7 @@
 const { AuthenticationError } = require("apollo-server-errors");
+const path = require('path');
+const fs = require('fs');
+
 const userController = require("../../controller/user.controller")
 
 const { formatProperty } = require("../../helpers")
@@ -22,11 +25,16 @@ module.exports = {
             return user
         },
 
-        updateUser: (_, args, context) => {
+        updateUser: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let data = formatProperty(args)
+            let { file } = args;
+            const { createReadStream, filename, mimetype, encoding } = await file;
 
-            let userAfterUpdate = userController.update(context._id, data)
+            const stream = createReadStream();
+            const pathName = path.join(__dirname, `/public/iamges/${filename}`)
+            await stream.pice(fs.createReadStream(pathName))
+            let data = await formatProperty(args)
+            let userAfterUpdate = await userController.update(context._id, data)
             return userAfterUpdate
         },
 
