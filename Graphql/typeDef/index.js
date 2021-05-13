@@ -12,7 +12,7 @@ const typeDefs = gql`
 
     type Mutation {
         createUser(email: String!, password: String!) : User
-        updateUser(email: String, avatar: String , password: String) : User
+        updateUser(avatar: Upload , password: String, phone: String, name: String ) : User
         likedRoom(_idRoom: ID!) : User
 
         createRoom(room: roomInput!, price: priceInput ) : Room!
@@ -44,6 +44,7 @@ const typeDefs = gql`
         expiresIn: Int
         created: [Room]
         liked: [Room]
+        avatar: String
     }
 
     input roomSearch {

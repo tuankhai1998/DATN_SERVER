@@ -10,6 +10,8 @@ const useModel = new Schema({
         required: true
     },
     avatar: String,
+    name: String,
+    phone: String,
     created: [
         {
             type: Schema.Types.ObjectId,

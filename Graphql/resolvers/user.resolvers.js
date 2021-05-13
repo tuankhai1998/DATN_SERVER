@@ -27,14 +27,18 @@ module.exports = {
 
         updateUser: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let { file } = args;
-            const { createReadStream, filename, mimetype, encoding } = await file;
+            let { avatar } = args;
+            let pathName;
+            if (avatar) {
 
-            const stream = createReadStream();
-            const pathName = path.join(__dirname, `/public/iamges/${filename}`)
-            await stream.pice(fs.createReadStream(pathName))
+                const { createReadStream, filename, mimetype, encoding } = await avatar;
+                const stream = createReadStream();
+                pathName = path.join(__dirname, `/public/iamges/${filename}`)
+                await stream.pice(fs.createReadStream(pathName))
+            }
+
             let data = await formatProperty(args)
-            let userAfterUpdate = await userController.update(context._id, data)
+            let userAfterUpdate = await userController.update(context._id, { ...data, avatar: pathName })
             return userAfterUpdate
         },
 
