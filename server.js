@@ -24,7 +24,8 @@ async function startServer() {
         resolvers,
         context: contextMiddleware,
         dataSources: () => ({}),
-        subscriptions: { path: '/' }
+        subscriptions: { path: '/' },
+        uploads: false
     });
     const app = express();
     server.applyMiddleware({ app });

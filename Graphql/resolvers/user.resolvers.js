@@ -14,6 +14,7 @@ module.exports = {
             return user
         },
         login: (_, args) => {
+
             let user = userController.login({ email: args.email, password: args.password })
             return user
         },
@@ -27,17 +28,22 @@ module.exports = {
 
         updateUser: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let { avatar } = args;
+            let { profile } = args;
+
+            const { avatar } = profile;
             let pathName;
             if (avatar) {
-
-                const { createReadStream, filename, mimetype, encoding } = await avatar;
-                const stream = createReadStream();
-                pathName = path.join(__dirname, `/public/iamges/${filename}`)
-                await stream.pice(fs.createReadStream(pathName))
+                try {
+                    const { createReadStream, filename } = await avatar;
+                    const stream = createReadStream();
+                    const pathName = path.join(__dirname, `/public/images/${filename}`);
+                    await stream.pipe(fs.createWriteStream(pathName));
+                } catch (error) {
+                    console.log(error)
+                }
             }
 
-            let data = await formatProperty(args)
+            let data = await formatProperty(profile)
             let userAfterUpdate = await userController.update(context._id, { ...data, avatar: pathName })
             return userAfterUpdate
         },

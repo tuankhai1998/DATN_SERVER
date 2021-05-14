@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+
+    scalar FileUpload
+
     type Query {
         rooms(query: roomSearch, sortBy: [sortBy] ,page: Int, per_page: Int ): [Room]
         user: User
@@ -12,7 +15,7 @@ const typeDefs = gql`
 
     type Mutation {
         createUser(email: String!, password: String!) : User
-        updateUser(avatar: Upload , password: String, phone: String, name: String ) : User
+        updateUser(profile: userInput) : User
         likedRoom(_idRoom: ID!) : User
 
         createRoom(room: roomInput!, price: priceInput ) : Room!
@@ -22,8 +25,9 @@ const typeDefs = gql`
         sendMessage(data: messagesInput) : Messages
         itRead(from: ID!, to: ID!) : [Messages]
 
-        singleImageUpload(file: Upload!): Image!
+        singleImageUpload(file: FileUpload!): Image!
     }
+
 
 
     type Image {
@@ -45,6 +49,8 @@ const typeDefs = gql`
         created: [Room]
         liked: [Room]
         avatar: String
+        phone: String
+        name: String
     }
 
     input roomSearch {
@@ -67,9 +73,10 @@ const typeDefs = gql`
     }
 
     input userInput {
-        email: String 
-        avatar: String
+        name: String 
+        avatar: FileUpload
         password: String
+        phone: String
     }
 
     type Room {
@@ -82,6 +89,7 @@ const typeDefs = gql`
         roomNum: Int!
         peoples: Int!
         hired: Boolean
+        name: String
         type: Int!
         createdAt: String
         utilities: [Int]
