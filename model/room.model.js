@@ -40,6 +40,7 @@ const roomModel = new Schema({
     ],
     roomNum: Number,
     peoples: Number,
+    acreage: Number,
     price: {
         water: {
             free: Boolean,
@@ -50,7 +51,10 @@ const roomModel = new Schema({
             price: Number
         },
         room: {
-            free: Boolean,
+            free: {
+                type: Boolean,
+                default: true
+            },
             price: Number
         },
         internet: {

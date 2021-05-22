@@ -1,15 +1,12 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-
-    scalar FileUpload
-
     type Query {
         rooms(query: roomSearch, sortBy: [sortBy] ,page: Int, per_page: Int ): [Room]
         user: User
         room (_id: ID!): Room
         login(email: String!, password: String!) : User
-        messages(form: ID!): [Messages]
+        messages(_id: ID!): [Messages]
         localAddress: [localAddress]
     }
 
@@ -18,16 +15,16 @@ const typeDefs = gql`
         updateUser(profile: userInput) : User
         likedRoom(_idRoom: ID!) : User
 
-        createRoom(room: roomInput!, price: priceInput ) : Room!
-        updateRoom(_id: ID!, data: roomInput, price: priceInput) : Room!
+        createRoom(room: roomInput! ) : Room!
+        updateRoom(_id: ID!, data: roomInput) : Room!
         deleteRoom(_id: ID!) : User!
 
+        createMessages(to: ID!):  Messages
         sendMessage(data: messagesInput) : Messages
-        itRead(from: ID!, to: ID!) : [Messages]
+        itRead(_idMessages: ID!) : [Messages]
 
-        singleImageUpload(file: FileUpload!): Image!
+        singleImageUpload(file: Upload!): Image!
     }
-
 
 
     type Image {
@@ -74,7 +71,7 @@ const typeDefs = gql`
 
     input userInput {
         name: String 
-        avatar: FileUpload
+        avatar: Upload
         password: String
         phone: String
     }
@@ -92,6 +89,7 @@ const typeDefs = gql`
         name: String
         type: Int!
         createdAt: String
+        acreage: Float
         utilities: [Int]
     }
 
@@ -155,26 +153,32 @@ const typeDefs = gql`
     input roomInput {
         sex: Int
         type: Int
-        createdBy: ID
         address: addressInput
-        images: [String]
+        images: [Upload]
         roomNum: Int
         peoples: Int
         hired: Boolean
+        acreage: Float
         utilities: [Int]
+        price: priceInput
     }
 
     type Messages {
-        content: String,
+        contents: [MessageContent],
         from: ID,
         to: ID,
+           
+    }
+
+    type MessageContent {
+        connect: String,
+        to: ID,
         read: Boolean,
-        created_at: String       
+        created_at: String   
     }
 
     input messagesInput {
         content: String,
-        from: ID,
         to: ID,
         read: Boolean,
     }

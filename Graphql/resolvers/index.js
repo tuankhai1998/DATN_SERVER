@@ -8,7 +8,7 @@ const { GraphQLUpload } = require('apollo-server-express');
 
 // Provide resolver functions for your schema fields
 const resolvers = {
-    FileUpload: GraphQLUpload,
+    Upload: GraphQLUpload,
     Query: {
         ...roomResolvers.Query,
         ...userResolvers.Query,

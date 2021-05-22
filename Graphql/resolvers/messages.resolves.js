@@ -4,9 +4,9 @@ const messagesController = require("../../controller/messages.controller");
 
 module.exports = {
     Query: {
-        messages: (_, { from }, context) => {
+        messages: (_, { _id }, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let messages = messagesController.messages(from)
+            let messages = messagesController.messages(_id)
             return messages
         }
     },
@@ -21,12 +21,16 @@ module.exports = {
 
         },
 
-        itRead: (_, { from, to }, context) => {
+        itRead: (_, { _idMessages }, context) => {
             let { _id, isAuth } = context;
             if (!isAuth) throw new AuthenticationError("unauthorized")
-            let updateRead = messagesController.itRead(from, to, _id)
-            context.pubsub.publish('READ_MESSAGE', { newMessage: updateRead })
+            let updateRead = messagesController.itRead(_idMessages, _id)
+            context.pubsub.publish('READ_MESSAGE', { readMessage: updateRead })
             return updateRead
+        },
+
+        createMessages: (_, { }, context) => {
+
         }
 
     },

@@ -6,6 +6,7 @@ const userController = require("../../controller/user.controller")
 
 const { formatProperty } = require("../../helpers")
 
+
 module.exports = {
     Query: {
         user: (_, __, context) => {
@@ -26,25 +27,44 @@ module.exports = {
             return user
         },
 
+        singleImageUpload: async (_, { file }) => {
+            let pathName
+            try {
+                const { createReadStream, filename, mimetype, encoding } = await file;
+
+                console.log(file)
+                const stream = await createReadStream();
+                pathName = path.join(__dirname, '../../public/images', filename);
+                let writeStream = await fs.createWriteStream(pathName);
+                await stream.pipe(writeStream);
+            } catch (error) {
+                console.log(error)
+            }
+            return pathName
+        },
+
+
         updateUser: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let { profile } = args;
-
             const { avatar } = profile;
-            let pathName;
+
+            let imageName;
             if (avatar) {
                 try {
                     const { createReadStream, filename } = await avatar;
-                    const stream = createReadStream();
-                    const pathName = path.join(__dirname, `/public/images/${filename}`);
+                    imageName = `${Date.now()}-${filename}`;
+                    const pathName = path.join(__dirname, '../../public/images', imageName);
+                    const stream = await createReadStream();
+
+                    console.log(stream)
                     await stream.pipe(fs.createWriteStream(pathName));
                 } catch (error) {
                     console.log(error)
                 }
             }
-
             let data = await formatProperty(profile)
-            let userAfterUpdate = await userController.update(context._id, { ...data, avatar: pathName })
+            let userAfterUpdate = await userController.update(context._id, { ...data, avatar: imageName })
             return userAfterUpdate
         },
 

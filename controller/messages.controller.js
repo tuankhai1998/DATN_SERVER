@@ -11,18 +11,19 @@ module.exports = {
         }
     },
 
-    messages: async (from) => {
+    messages: async (_id) => {
         try {
-            let allMessages = await messagesModel.find({ from })
+            let allMessages = await messagesModel.find({ $or: [{ from: _id }, { to: _id }] })
             return allMessages
         } catch (error) {
             throw error
         }
     },
 
-    itRead: async (form, to, userId) => {
+    itRead: async (_idMessages, _id) => {
         try {
-            let update = await messagesModel.updateMany({ form, to: userId, read: false }, { $set: { read: true } }, { upsert: true })
+            let update = await messagesModel.findById({ _id: _idMessages })
+            
             return update
         } catch (error) {
             throw error

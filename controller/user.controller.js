@@ -53,13 +53,21 @@ module.exports = {
 
     update: async (_id, data) => {
 
-        let { password } = data
+        let { password, avatar } = data
+
         if (password) {
             let newPassword = await bcrypt.hash(password, 12);
             data = { ...data, password: newPassword }
         }
         try {
-            let userUpdated = await userModel.findByIdAndUpdate({ _id }, { $set: { ...data } })
+            let userUpdated;
+            if (avatar) {
+                userUpdated = await userModel.findByIdAndUpdate({ _id }, { $set: { ...data, avatar } }, { new: true })
+            } else {
+                userUpdated = await userModel.findByIdAndUpdate({ _id }, { $set: { ...data } }, { new: true })
+            }
+
+            console.log(userUpdated)
             return {
                 ...userUpdated._doc,
                 password: null
