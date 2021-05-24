@@ -16,14 +16,12 @@ const typeDefs = gql`
         likedRoom(_idRoom: ID!) : User
 
         createRoom(room: roomInput! ) : Room!
-        updateRoom(_id: ID!, data: roomInput) : Room!
+        updateRoom( data: roomInput) : Room!
         deleteRoom(_id: ID!) : User!
 
         createMessages(to: ID!):  Messages
         sendMessage(data: messagesInput) : Messages
         itRead(_idMessages: ID!) : [Messages]
-
-        singleImageUpload(file: Upload!): Image!
     }
 
 

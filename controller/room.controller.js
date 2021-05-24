@@ -6,7 +6,7 @@ const { getUserCreated, getRoom } = require("../helpers")
 
 module.exports = {
     create: async (userId, data) => {
-        let newRoom = new roomModel({ ...data.room, createdBy: userId })
+        let newRoom = new roomModel({ ...data, createdBy: userId })
         try {
             let createdRoom = await newRoom.save()
             await userModel.findByIdAndUpdate({ _id: userId }, { $push: { "created": newRoom._doc._id } }, { upsert: true, new: true })
@@ -19,9 +19,9 @@ module.exports = {
         }
     },
 
-    update: async (_id, data) => {
+    update: async (data) => {
         try {
-            let roomUpdated = await roomModel.findByIdAndUpdate({ _id }, { $set: data })
+            let roomUpdated = await roomModel.findByIdAndUpdate({ _id: data._id }, { $set: data }, { new: true })
             return {
                 ...roomUpdated._doc,
                 createdBy: () => getUserCreated(roomUpdated._doc.createdBy),

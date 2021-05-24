@@ -26,16 +26,48 @@ module.exports = {
     Mutation: {
         // room handle
         createRoom: (_, args, context) => {
-            let data = JSON.parse(JSON.stringify(args));
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let roomCreated = roomController.create(context._id, data)
+            let data = JSON.parse(JSON.stringify(args));
+            const { images } = data;
+            let listImages = [];
+            if (avatar) {
+                try {
+                    images.forEach(async (image) => {
+                        const { createReadStream, filename, mimetype, encoding } = await image;
+                        let imageName = `room-${Date.now()}-${filename}`;
+                        imageNames.push(imageName);
+                        const stream = await createReadStream();
+                        await storeUpload({ stream, filename: imageName, mimetype, encoding });
+                    })
+
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+
+            let roomCreated = roomController.create(context._id, { ...data, images: listImages })
             return roomCreated
         },
         updateRoom: (_, args, context) => {
             let data = JSON.parse(JSON.stringify(args));
-            let room = { ...data.data, price: { ...data.price } }
+            const { images } = data;
+            let listImages = [];
+            if (avatar) {
+                try {
+                    images.forEach(async (image) => {
+                        const { createReadStream, filename, mimetype, encoding } = await image;
+                        let imageName = `room-${Date.now()}-${filename}`;
+                        imageNames.push(imageName);
+                        const stream = await createReadStream();
+                        await storeUpload({ stream, filename: imageName, mimetype, encoding });
+                    })
+
+                } catch (error) {
+                    console.log(error)
+                }
+            }
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let roomUpdated = roomController.update(data._id, room)
+            let roomUpdated = roomController.update({ ...data, images: listImages })
             return roomUpdated
         },
         deleteRoom: (_, { _id }, context) => {
