@@ -7,6 +7,10 @@ const { getUserCreated, getRoom } = require("../helpers")
 module.exports = {
     create: async (userId, data) => {
         let newRoom = new roomModel({ ...data, createdBy: userId })
+
+        console.log(newRoom)
+
+
         try {
             let createdRoom = await newRoom.save()
             await userModel.findByIdAndUpdate({ _id: userId }, { $push: { "created": newRoom._doc._id } }, { upsert: true, new: true })
@@ -15,6 +19,7 @@ module.exports = {
                 createdBy: () => getUserCreated(newRoom._doc.createdBy),
             }
         } catch (error) {
+            console.log(error)
             throw error
         }
     },

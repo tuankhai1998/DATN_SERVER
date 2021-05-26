@@ -15,7 +15,7 @@ const typeDefs = gql`
         updateUser(profile: userInput) : User
         likedRoom(_idRoom: ID!) : User
 
-        createRoom(room: roomInput! ) : Room!
+        createRoom(room: roomInput ) : Room!
         updateRoom( data: roomInput) : Room!
         deleteRoom(_id: ID!) : User!
 
@@ -156,7 +156,7 @@ const typeDefs = gql`
         roomNum: Int
         peoples: Int
         hired: Boolean
-        acreage: Float
+        acreage: Int
         utilities: [Int]
         price: priceInput
     }
@@ -164,8 +164,7 @@ const typeDefs = gql`
     type Messages {
         contents: [MessageContent],
         from: ID,
-        to: ID,
-           
+        to: ID
     }
 
     type MessageContent {

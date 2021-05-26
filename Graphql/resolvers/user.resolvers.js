@@ -15,7 +15,6 @@ module.exports = {
             return user
         },
         login: (_, args) => {
-
             let user = userController.login({ email: args.email, password: args.password })
             return user
         },
@@ -31,7 +30,6 @@ module.exports = {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let { profile } = args;
             const { avatar } = profile;
-
             let imageName;
             if (avatar) {
                 try {

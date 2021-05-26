@@ -2,6 +2,20 @@ const { AuthenticationError } = require("apollo-server-errors");
 const roomController = require("../../controller/room.controller");
 const { formatProperty } = require("../../helpers");
 
+const uploadListImage = async (images) => {
+    return new Promise.all(images.map(async (image) => {
+        const { createReadStream, filename, mimetype, encoding } = await image;
+        let imageName = `room-${Date.now()}-${filename}`;
+        const stream = await createReadStream();
+        await storeUpload({ stream, filename: imageName, mimetype, encoding });
+    })).then(async function (file_uploaded) {
+        const util = require('util')
+        console.log("INSPECT 1: " + util.inspect(file_uploaded[0], { showHidden: false, depth: null }))
+        console.log("x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x")
+        console.log("INSPECT 2: " + util.inspect(file_uploaded[1], { showHidden: false, depth: null }))
+    })
+}
+
 module.exports = {
     Query: {
         rooms: (_, args) => {
@@ -25,27 +39,12 @@ module.exports = {
 
     Mutation: {
         // room handle
-        createRoom: (_, args, context) => {
+        createRoom: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let data = JSON.parse(JSON.stringify(args));
-            const { images } = data;
-            let listImages = [];
-            if (avatar) {
-                try {
-                    images.forEach(async (image) => {
-                        const { createReadStream, filename, mimetype, encoding } = await image;
-                        let imageName = `room-${Date.now()}-${filename}`;
-                        imageNames.push(imageName);
-                        const stream = await createReadStream();
-                        await storeUpload({ stream, filename: imageName, mimetype, encoding });
-                    })
-
-                } catch (error) {
-                    console.log(error)
-                }
-            }
-
-            let roomCreated = roomController.create(context._id, { ...data, images: listImages })
+            const { images } = data.room;
+            let listImages = await uploadListImage(images);
+            let roomCreated = await roomController.create(context._id, { ...room, images: listImages })
             return roomCreated
         },
         updateRoom: (_, args, context) => {
