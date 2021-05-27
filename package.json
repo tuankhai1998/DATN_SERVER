@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.15",
+    "mongoose": "^5.12.11",
     "uuid": "^8.3.2",
     "v8": "^0.1.0"
   }
