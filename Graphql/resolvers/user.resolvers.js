@@ -7,6 +7,18 @@ const storeUpload = require("../../helpers/storeUpload")
 
 
 
+const generatePassword = () => {
+    var length = 8,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+
+
+
 module.exports = {
     Query: {
         user: (_, __, context) => {
@@ -18,11 +30,19 @@ module.exports = {
             let user = userController.login({ email: args.email, password: args.password })
             return user
         },
+
+        resetPassword: async (_, args) => {
+            let password = await generatePassword();
+            let user = await userController.resetPassword({ email: args.email, password })
+            return user
+        },
+
     },
 
     Mutation: {
         createUser: async (_, args) => {
-            let user = await userController.create({ email: args.email, password: args.password })
+            let password = await generatePassword();
+            let user = await userController.create({ email: args.email, password })
             return user
         },
 
@@ -42,8 +62,9 @@ module.exports = {
                     console.log(error)
                 }
             }
-            let data = await formatProperty(profile)
-            let userAfterUpdate = await userController.update(context._id, { ...data, avatar: imageName })
+            let newData = { ...profile, avatar: imageName }
+            let data = await formatProperty(newData)
+            let userAfterUpdate = await userController.update(context._id, { ...data })
             return userAfterUpdate
         },
 

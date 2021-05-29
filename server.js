@@ -8,6 +8,7 @@ const resolvers = require('./graphql/resolvers');
 const contextMiddleware = require('./util/contextMiddleware');
 const cluster = require('cluster')
 const v8 = require('v8');
+// require('dotenv').config()
 
 async function startServer() {
     // connect database
@@ -33,7 +34,7 @@ async function startServer() {
     app.use(cors())
 
     app.listen({ port: PORT }, () => {
-        console.log(`🚀 Server ready at http://localhost:${PORT}`)
+        console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`)
         console.log(`🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`)
     })
 }

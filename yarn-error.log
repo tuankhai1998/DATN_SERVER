@@ -1,0 +1,55 @@
+Arguments: 
+  C:\Program Files (x86)\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add dotenv
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\PC KT\bin;C:\Python39\Scripts;C:\Python39;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MongoDB\Server\4.4\bin;C:\Program Files (x86)\nodejs;C:\ProgramData\chocolatey\bin;C:\Users\PC KT\AppData\Local\Microsoft\WindowsApps;C:\Users\PC KT\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\PC KT\AppData\Local\Yarn\bin;C:\Users\PC KT\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.17.0
+
+Platform: 
+  win32 ia32
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\PC KT\Desktop\DATN\DATN_SERVER\node_modules\bcrypt\lib\binding\napi-v3\bcrypt_lib.node'
+
+npm manifest: 
+  {
+    "name": "DATN_PT",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "resolutions": {
+      "**/**/fs-capacitor": "^6.2.0",
+      "**/graphql-upload": "^11.0.0"
+    },
+    "dependencies": {
+      "apollo-server-express": "^2.21.0",
+      "aws-sdk": "^2.912.0",
+      "bcrypt": "^5.0.1",
+      "cluster": "^0.7.7",
+      "cors": "^2.8.5",
+      "dotenv": "^8.2.0",
+      "express": "^4.17.1",
+      "graphql": "^15.5.0",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^5.12.11",
+      "nodemailer": "^6.6.1",
+      "uuid": "^8.3.2",
+      "v8": "^0.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -8,10 +8,11 @@ const typeDefs = gql`
         login(email: String!, password: String!) : User
         messages(_id: ID!): [Messages]
         localAddress: [localAddress]
+        resetPassword(email: String!) : User
     }
 
     type Mutation {
-        createUser(email: String!, password: String!) : User
+        createUser(email: String!) : User
         updateUser(profile: userInput) : User
         likedRoom(_idRoom: ID!) : User
 
@@ -71,6 +72,7 @@ const typeDefs = gql`
         name: String 
         avatar: Upload
         password: String
+        newPassword: String
         phone: String
     }
 

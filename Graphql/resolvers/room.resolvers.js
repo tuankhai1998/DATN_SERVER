@@ -3,7 +3,7 @@ const roomController = require("../../controller/room.controller");
 const { formatProperty } = require("../../helpers");
 
 const uploadListImage = async (images) => {
-    return new Promise.all(images.map(async (image) => {
+    return Promise.all(images.map(async (image) => {
         const { createReadStream, filename, mimetype, encoding } = await image;
         let imageName = `room-${Date.now()}-${filename}`;
         const stream = await createReadStream();
@@ -43,8 +43,10 @@ module.exports = {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let data = JSON.parse(JSON.stringify(args));
             const { images } = data.room;
+
+            console.log({ images })
             let listImages = await uploadListImage(images);
-            let roomCreated = await roomController.create(context._id, { ...room, images: listImages })
+            let roomCreated = await roomController.create(context._id, { ...data, images: listImages })
             return roomCreated
         },
         updateRoom: (_, args, context) => {
