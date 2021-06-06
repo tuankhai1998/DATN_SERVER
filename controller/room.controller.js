@@ -6,11 +6,9 @@ const { getUserCreated, getRoom } = require("../helpers")
 
 module.exports = {
     create: async (userId, data) => {
+
+        console.log(data.address)
         let newRoom = new roomModel({ ...data, createdBy: userId })
-
-        console.log(newRoom)
-
-
         try {
             let createdRoom = await newRoom.save()
             await userModel.findByIdAndUpdate({ _id: userId }, { $push: { "created": newRoom._doc._id } }, { upsert: true, new: true })
@@ -39,7 +37,10 @@ module.exports = {
     currentRoom: async (_id) => {
         try {
             let room = await roomModel.findById({ _id });
-            return room
+            return {
+                ...room._doc,
+                createdBy: () => getUserCreated(room._doc.createdBy),
+            }
         } catch (error) {
             throw error
         }
@@ -119,7 +120,7 @@ module.exports = {
 
     delete: async (_id, userId) => {
         try {
-            let userUpdated = await userModel.findOneAndDelete({ _id }, { $pull: { created: _id } })
+            let userUpdated = await userModel.findOneAndDelete({ _id: userId }, { $pull: { created: _id } })
             await roomModel.findOneAndDelete({ _id, createdBy: userId });
             return {
                 ...userUpdated._doc,

@@ -1,17 +1,22 @@
 const { Schema, model } = require('mongoose');
 
 const messageContentModel = new Schema({
-    content: String,
+    chatRoom: {
+        type: Schema.Types.ObjectId,
+        ref: 'ChatRooms'
+    },
+    from: {
+        type: Schema.Types.ObjectId,
+        ref: 'Users'
+    },
     to: {
         type: Schema.Types.ObjectId,
         ref: 'Users'
     },
-    read: {
-        type: Boolean,
-        default: false
-    }
+    messageBody: String,
+    messageStatus: { type: Boolean, default: false },
 },
-    { timestamps: { createdAt: 'created_at' } }
+    { timestamps: { createdAt: 'createdAt' } }
 )
 
 module.exports = model('MessageContent', messageContentModel)

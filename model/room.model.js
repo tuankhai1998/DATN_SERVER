@@ -1,17 +1,22 @@
 const { Schema, model } = require('mongoose');
 
 const roomModel = new Schema({
+    utilities: [Number],
+    roomNum: Number,
+    peoples: Number,
+    acreage: Number,
+    phone: String,
+    roomName: String,
+    description: String,
     hired: {
         type: Boolean,
         default: false
     },
     type: {
-        type: Number,
-        required: true
+        type: Number
     },
     sex: {
-        type: Number,
-        required: true
+        type: Number
     },
     address: {
         loc: {
@@ -38,9 +43,6 @@ const roomModel = new Schema({
             required: true
         }
     ],
-    roomNum: Number,
-    peoples: Number,
-    acreage: Number,
     price: {
         water: {
             free: {

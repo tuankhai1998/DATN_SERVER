@@ -1,6 +1,6 @@
 {
     "env": {
-        "PORT": "8686",
+        "PORT": "8000",
         "MONGO_USER": "",
         "MONGO_PASSWORD": "",
         "TOKEN_PASSWORD": "FY&7#<x{K4",

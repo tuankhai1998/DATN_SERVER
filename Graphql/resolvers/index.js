@@ -1,7 +1,6 @@
 const messagesResolves = require("./messages.resolves");
 const roomResolvers = require("./room.resolvers")
 const userResolvers = require("./user.resolvers")
-const localAddressResolvers = require("./localAddress.resolvers")
 
 const { GraphQLUpload } = require('apollo-server-express');
 
@@ -13,7 +12,6 @@ const resolvers = {
         ...roomResolvers.Query,
         ...userResolvers.Query,
         ...messagesResolves.Query,
-        ...localAddressResolvers.Query
     },
 
     Mutation: {

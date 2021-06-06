@@ -1,19 +1,22 @@
 const { AuthenticationError } = require("apollo-server-errors");
 const roomController = require("../../controller/room.controller");
 const { formatProperty } = require("../../helpers");
+const storeUpload = require("../../helpers/storeUpload");
 
 const uploadListImage = async (images) => {
-    return Promise.all(images.map(async (image) => {
-        const { createReadStream, filename, mimetype, encoding } = await image;
-        let imageName = `room-${Date.now()}-${filename}`;
-        const stream = await createReadStream();
-        await storeUpload({ stream, filename: imageName, mimetype, encoding });
-    })).then(async function (file_uploaded) {
-        const util = require('util')
-        console.log("INSPECT 1: " + util.inspect(file_uploaded[0], { showHidden: false, depth: null }))
-        console.log("x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x")
-        console.log("INSPECT 2: " + util.inspect(file_uploaded[1], { showHidden: false, depth: null }))
-    })
+    let listImages = []
+    try {
+        await Promise.all(images.map(async (image) => {
+            const { createReadStream, filename, mimetype, encoding } = await image;
+            let imageName = `room-${Date.now()}-${filename}`;
+            const stream = await createReadStream();
+            await storeUpload({ stream, filename: imageName, mimetype, encoding });
+            listImages.push(imageName)
+        }))
+    } catch (error) {
+        console.log(error)
+    }
+    return listImages
 }
 
 module.exports = {
@@ -34,6 +37,11 @@ module.exports = {
         room: (_, { _id }) => {
             let room = roomController.currentRoom(_id)
             return room
+        },
+        deleteRoom: (_, { _id }, context) => {
+            if (!context.isAuth) throw new AuthenticationError("unauthorized")
+            let roomDeleted = roomController.delete(_id, context._id)
+            return roomDeleted
         }
     },
 
@@ -41,12 +49,9 @@ module.exports = {
         // room handle
         createRoom: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let data = JSON.parse(JSON.stringify(args));
-            const { images } = data.room;
-
-            console.log({ images })
+            const { images } = args.room;
             let listImages = await uploadListImage(images);
-            let roomCreated = await roomController.create(context._id, { ...data, images: listImages })
+            let roomCreated = await roomController.create(context._id, { ...args.room, images: listImages })
             return roomCreated
         },
         updateRoom: (_, args, context) => {
@@ -71,11 +76,7 @@ module.exports = {
             let roomUpdated = roomController.update({ ...data, images: listImages })
             return roomUpdated
         },
-        deleteRoom: (_, { _id }, context) => {
-            if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let roomDeleted = roomController.delete(_id, context._id)
-            return roomDeleted
-        }
+
 
     }
 }

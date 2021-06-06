@@ -25,8 +25,14 @@ async function startServer() {
         typeDefs,
         resolvers,
         context: contextMiddleware,
+        subscriptions: {
+            path: '/',
+            onConnect: async (connectionParams, webSocket) => {
+                console.log('xxx');
+                console.log(connectionParams);
+            },
+        },
         dataSources: () => ({}),
-        subscriptions: { path: '/' },
     });
     const app = express();
     server.applyMiddleware({ app });
@@ -34,46 +40,11 @@ async function startServer() {
     app.use(cors())
 
     app.listen({ port: PORT }, () => {
-        console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`)
+        console.log(`🚀 server ready at http://localhost:${PORT}${server.graphqlPath}`)
         console.log(`🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`)
     })
 }
 startServer()
 // start server
-
-// if (cluster.isMaster) {
-//     cluster.fork();
-//     cluster.on('exit', (deadWorker, code, signal) => {
-//         // Restart the worker
-//         let worker = cluster.fork();
-
-//         // Note the process IDs
-//         let newPID = worker.process.pid;
-//         let oldPID = deadWorker.process.pid;
-
-//         // Log the event
-//         console.log('worker ' + oldPID + ' died.');
-//         console.log('worker ' + newPID + ' born.');
-
-//     });
-// } else {
-//     // auxiliary function that translates size from bytes to MB's
-//     let toMB = size => Math.round(size / 1024 / 1024 * 100) / 100;
-
-//     // worker
-//     const initialStats = v8.getHeapStatistics();
-//     Object.keys(initialStats).forEach(key => initialStats[key] = toMB(initialStats[key]));
-//     const totalHeapSizeThreshold = initialStats.heap_size_limit * 75 / 100;
-//     let detectHeapOverflow = () => {
-//         let stats = v8.getHeapStatistics();
-//         Object.keys(stats).forEach(key => stats[key] = toMB(stats[key]));
-//         if ((stats.total_heap_size) > totalHeapSizeThreshold) {
-//             process.exit();
-//         }
-//     };
-//     setInterval(detectHeapOverflow, 1000);
-//     // here goes the main logic
-
-// }
 
 

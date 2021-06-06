@@ -1,5 +1,6 @@
 const roomModel = require("../model/room.model")
 const userModel = require("../model/user.model")
+const messageModel = require("../model/message.model")
 
 const getUserCreated = async (userID) => {
     try {
@@ -34,11 +35,34 @@ const formatProperty = (object) => {
     return object;
 }
 
+const getMessagesOfChatRoom = async (messagesID) => {
+    try {
+        let messages = await messageModel.find({ _id: { $in: messagesID } })
+        return messages.map(message => ({
+            ...message._doc,
+            user: () => getUserSendMessage(message._doc.user)
+        }))
+    } catch (error) {
+        throw new Error(`get message ${error}`)
+    }
+}
+
+const getUserSendMessage = async (userID) => {
+    try {
+        let user = await userModel.findById({ _id: userID })
+        return user
+    } catch (error) {
+        throw error
+    }
+}
+
 
 module.exports = {
     getUserCreated,
     getRoom,
-    formatProperty
+    formatProperty,
+    getMessagesOfChatRoom,
+    getUserSendMessage
 }
 
 

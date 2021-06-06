@@ -2,13 +2,17 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
     type Query {
-        rooms(query: roomSearch, sortBy: [sortBy] ,page: Int, per_page: Int ): [Room]
         user: User
-        room (_id: ID!): Room
         login(email: String!, password: String!) : User
-        messages(_id: ID!): [Messages]
-        localAddress: [localAddress]
         resetPassword(email: String!) : User
+
+        rooms(query: roomSearch, sortBy: [sortBy] ,page: Int, per_page: Int ): [Room]
+        room (_id: ID!): Room
+        deleteRoom(_id: ID!) : User!
+
+        getAllMessageOfChatRoom (_id: ID!): [MessageContent]
+        getAllChatRooms: [chatRoom]
+
     }
 
     type Mutation {
@@ -18,11 +22,10 @@ const typeDefs = gql`
 
         createRoom(room: roomInput ) : Room!
         updateRoom( data: roomInput) : Room!
-        deleteRoom(_id: ID!) : User!
-
-        createMessages(to: ID!):  Messages
-        sendMessage(data: messagesInput) : Messages
-        itRead(_idMessages: ID!) : [Messages]
+      
+        createRoomChat (userID: ID!) : chatRoom
+        sendMessage(data: messagesInput) : MessageContent
+        itRead(_idMessages: ID!) : [MessageContent]
     }
 
 
@@ -30,10 +33,9 @@ const typeDefs = gql`
        url: String!
     }
 
-
     type Subscription {
-        newMessage: Messages!
-        readMessage: [Messages]
+        newMessage: MessageContent!
+        readMessage: [MessageContent]
     }
 
     type User {
@@ -91,6 +93,9 @@ const typeDefs = gql`
         createdAt: String
         acreage: Float
         utilities: [Int]
+        phone: String
+        roomName: String
+        description: String
     }
 
     type Address {
@@ -161,25 +166,30 @@ const typeDefs = gql`
         acreage: Int
         utilities: [Int]
         price: priceInput
+        phone: String
+        roomName: String
+        description: String
     }
 
-    type Messages {
-        contents: [MessageContent],
-        from: ID,
-        to: ID
+    type chatRoom {
+        messages: [MessageContent],
+        members: [User!]
+        _id: ID
     }
 
     type MessageContent {
-        connect: String,
-        to: ID,
-        read: Boolean,
-        created_at: String   
+        chatRoom: ID!,
+        messageBody: String,
+        from: User,
+        to: User,
+        createdAt: String,
+        messageStatus: Boolean   
     }
 
     input messagesInput {
-        content: String,
-        to: ID,
-        read: Boolean,
+        chatRoom: ID!,
+        messageBody: String,
+        to: ID!
     }
 
     type localAddress {
