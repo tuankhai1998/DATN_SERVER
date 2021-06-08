@@ -7,8 +7,6 @@ module.exports = (context) => {
     const { req, connection } = context
     let token;
     if (connection) {
-
-        console.log("haahah")
         token = connection.context.Authorization.split(" ")[1]
     } else {
         const authHeader = req.headers.authorization;

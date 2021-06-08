@@ -19,7 +19,6 @@ module.exports = {
     },
 
     Mutation: {
-
         createRoomChat: async (_, { userID }, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             let data = [userID, context._id]
@@ -32,8 +31,7 @@ module.exports = {
 
         sendMessage: async (_, { data }, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let newMessage = JSON.parse(JSON.stringify(data))
-            let messages = await messagesController.sendMessages({ ...newMessage, from: context._id })
+            let messages = await messagesController.sendMessages({ ...data, from: context._id })
             context.pubsub.publish('NEW_MESSAGE', { newMessage: messages })
             return messages
 
@@ -54,9 +52,13 @@ module.exports = {
             subscribe: withFilter((_, __, { pubsub, isAuth }) => {
                 if (!isAuth) throw new AuthenticationError("unauthorized")
                 return pubsub.asyncIterator(['NEW_MESSAGE'])
-            }, ({ newMessage }, _, { _id }) => {
-                if (newMessage.user._id === _id) return true
+            }, async ({ newMessage }, _, { _id }) => {
 
+                let from = await newMessage.from()
+                let to = await newMessage.to()
+                if (from._id == _id || to._id == _id) {
+                    return true
+                }
                 return false
             })
         },

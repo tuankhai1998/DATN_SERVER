@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const cors = require('cors');
+const http = require('http');
 
 const typeDefs = require('./graphql/typeDef')
 const resolvers = require('./graphql/resolvers');
 const contextMiddleware = require('./util/contextMiddleware');
-const cluster = require('cluster')
-const v8 = require('v8');
+
 // require('dotenv').config()
 
 async function startServer() {
@@ -27,10 +27,6 @@ async function startServer() {
         context: contextMiddleware,
         subscriptions: {
             path: '/',
-            onConnect: async (connectionParams, webSocket) => {
-                console.log('xxx');
-                console.log(connectionParams);
-            },
         },
         dataSources: () => ({}),
     });
@@ -39,7 +35,11 @@ async function startServer() {
     app.use(express.static(__dirname + '/public'));
     app.use(cors())
 
-    app.listen({ port: PORT }, () => {
+    const httpServer = http.createServer(app);
+    server.installSubscriptionHandlers(httpServer);
+
+
+    httpServer.listen({ port: PORT }, () => {
         console.log(`🚀 server ready at http://localhost:${PORT}${server.graphqlPath}`)
         console.log(`🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`)
     })

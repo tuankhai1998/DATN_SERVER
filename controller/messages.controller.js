@@ -37,7 +37,7 @@ module.exports = {
     },
 
     sendMessages: async (data) => {
-        let { chatRoom, form, messageBody, to } = data;
+        let { chatRoom, from, messageBody, to } = data;
         let newMessage = new messageModal(data)
 
         try {
@@ -45,7 +45,7 @@ module.exports = {
             await chatRoomModel.findByIdAndUpdate({ _id: chatRoom }, { $push: { "messages": newMessage._doc._id } }, { upsert: true, new: true })
             return {
                 ...message._doc,
-                form: () => getUserSendMessage(message._doc.form),
+                from: () => getUserSendMessage(message._doc.from),
                 to: () => getUserSendMessage(message._doc.to),
             }
         } catch (error) {
