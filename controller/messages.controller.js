@@ -6,14 +6,15 @@ const { getMessagesOfChatRoom, getUserSendMessage } = require('../helpers');
 
 module.exports = {
     createRoomChat: async (data) => {
-        let members = data.map(userId => mongoose.Types.ObjectId(userId));
-        let newChatRoom = new chatRoomModel({ members })
         try {
-            let checkChatRoom = await chatRoomModel.aggregate([{ $match: { members } }])
-            if (checkChatRoom.length < 1) {
+            let members = data.map(userId => mongoose.Types.ObjectId(userId));
+            let newChatRoom = new chatRoomModel({ members })
+            let checkChatRoom = await chatRoomModel.findOne({ $and: [{ members: members[0] }, { members: members[1] }] })
+            if (!checkChatRoom) {
                 await newChatRoom.save()
                 return newChatRoom
             }
+            return checkChatRoom
 
         } catch (error) {
             throw error
@@ -55,7 +56,7 @@ module.exports = {
 
     messages: async (_id) => {
         try {
-            let allMessages = await chatRoomModel.find({ $or: [{ from: _id }, { to: _id }] })
+            let allMessages = await chatRoomModel.find({ _id })
             return allMessages
         } catch (error) {
             throw error

@@ -1,4 +1,4 @@
-const { AuthenticationError } = require("apollo-server-errors");
+const { AuthenticationError, UserInputError } = require("apollo-server-errors");
 const { withFilter } = require('apollo-server')
 
 const messagesController = require("../../controller/messages.controller");
@@ -21,10 +21,9 @@ module.exports = {
     Mutation: {
         createRoomChat: async (_, { userID }, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
+            if (userID == context._id) throw new UserInputError("Ko thể gửi tin nhắn cho bản thân!")
             let data = [userID, context._id]
-
             const newChatRoom = await messagesController.createRoomChat(data)
-
             return newChatRoom
 
         },
