@@ -2,7 +2,7 @@ const chatRoomModel = require('../model/chatRooms.model');
 const messageModal = require('../model/message.model');
 const mongoose = require('mongoose');
 
-const { getMessagesOfChatRoom, getUserSendMessage } = require('../helpers');
+const { getMessagesOfChatRoom, getUserSendMessage, getMembers } = require('../helpers');
 
 module.exports = {
     createRoomChat: async (data) => {
@@ -28,7 +28,8 @@ module.exports = {
             return allChatRoom.map(chatRoom => (
                 {
                     ...chatRoom._doc,
-                    messages: () => getMessagesOfChatRoom(chatRoom._doc.messages)
+                    messages: () => getMessagesOfChatRoom(chatRoom._doc.messages),
+                    members: () => getMembers(chatRoom._doc.members)
                 }
             ))
         } catch (error) {
