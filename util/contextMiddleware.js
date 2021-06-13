@@ -6,8 +6,8 @@ const pubsub = new PubSub();
 module.exports = (context) => {
     const { req, connection } = context
     let token;
-    if (connection) {
-        token = connection.context.Authorization.split(" ")[1]
+    if (connection && connection.context.Authorization) {
+        token = connection.context.Authorization._W.split(' ')[1]
     } else {
         const authHeader = req.headers.authorization;
         if (!authHeader) return { isAuth: false }

@@ -188,7 +188,7 @@ const typeDefs = gql`
 
     input messagesInput {
         chatRoom: ID!,
-        messageBody: String,
+        messageBody: String!,
         to: ID!
     }
 
