@@ -58,7 +58,13 @@ module.exports = {
     messages: async (_id) => {
         try {
             let allMessages = await messageModal.find({ chatRoom: _id })
-            return allMessages.map(message => message)
+            return allMessages.map(message => {
+                return {
+                    ...message._doc,
+                    from: () => getUserSendMessage(message._doc.from),
+                    to: () => getUserSendMessage(message._doc.to),
+                }
+            })
         } catch (error) {
             throw error
         }

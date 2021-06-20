@@ -50,6 +50,9 @@ module.exports = {
         createRoom: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
             const { images } = args.room;
+            /*
+            let listImages = images.filter(image => typeof (image) !== 'string')
+            */
             let listImages = await uploadListImage(images);
             let roomCreated = await roomController.create(context._id, { ...args.room, images: listImages })
             return roomCreated

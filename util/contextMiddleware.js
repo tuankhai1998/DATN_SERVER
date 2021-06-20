@@ -8,7 +8,7 @@ module.exports = (context) => {
     let token;
     if (connection && connection.context.Authorization) {
         token = connection.context.Authorization._W.split(' ')[1]
-    } else {
+        } else {
         const authHeader = req.headers.authorization;
         if (!authHeader) return { isAuth: false }
         token = authHeader.split(" ")[1]

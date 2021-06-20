@@ -37,6 +37,8 @@ module.exports = {
     currentRoom: async (_id) => {
         try {
             let room = await roomModel.findById({ _id });
+
+            console.log(room)
             return {
                 ...room._doc,
                 createdBy: () => getUserCreated(room._doc.createdBy),
