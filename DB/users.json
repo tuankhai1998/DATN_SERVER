@@ -1,83 +1,23 @@
 [{
   "_id": {
-    "$oid": "605173a14b1b413fd44fdc34"
+    "$oid": "60545a637944c6589c95e0b8"
   },
   "created": [
     {
-      "$oid": "605174084b1b413fd44fdc36"
-    },
-    {
-      "$oid": "605174984b1b413fd44fdc38"
-    },
-    {
-      "$oid": "6051d30d5912f91ca4c12261"
-    },
-    {
-      "$oid": "6051d357e3f54b2390cf8b43"
-    },
-    {
-      "$oid": "6051d738e3f54b2390cf8b45"
-    },
-    {
-      "$oid": "6051d7f7e3f54b2390cf8b47"
-    },
-    {
-      "$oid": "6052bfed5e582b0b9407e885"
-    },
-    {
-      "$oid": "60530cf82f38c6321421c75d"
-    },
-    {
-      "$oid": "60530cfa2f38c6321421c75f"
-    },
-    {
-      "$oid": "60530d0f2f38c6321421c761"
-    },
-    {
-      "$oid": "60530d45a897cb309008de82"
-    },
-    {
-      "$oid": "605415762285ed1d943fe4e2"
-    },
-    {
-      "$oid": "605446f32b752a222ca55063"
-    },
-    {
-      "$oid": "607a837b9429f70cccd7fa40"
-    },
-    {
-      "$oid": "607a83a79429f70cccd7fa41"
-    },
-    {
-      "$oid": "607a90268031f40c14f0b563"
-    },
-    {
-      "$oid": "607a902f8031f40c14f0b564"
-    },
-    {
-      "$oid": "607a90398031f40c14f0b565"
-    },
-    {
-      "$oid": "607ada75d8c5d129b0c2b617"
-    },
-    {
-      "$oid": "607ada85d8c5d129b0c2b618"
-    },
-    {
-      "$oid": "607ada90d8c5d129b0c2b619"
+      "$oid": "60bb3f152f43083938c732b3"
     }
   ],
-  "liked": [],
-  "email": "khailt123",
-  "password": "$2b$12$q49qXjh6kAddKvA9muGudOuEY9jCn0hhZd/olfsggef6fcGOuR7Ui",
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUxNzNhMTRiMWI0MTNmZDQ0ZmRjMzQiLCJpYXQiOjE2MTU5NTA3NTMsImV4cCI6MTYxNTk1MDc1M30.GFWL7XAFa0L0vDt7w9vaDJErQMcYLEGvZuEKvt608xo",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "60545a637944c6589c95e0b8"
-  },
-  "created": [],
-  "liked": [],
+  "liked": [
+    {
+      "$oid": "607ada90d8c5d129b0c2b619"
+    },
+    {
+      "$oid": "60ad0021fd9c8a2fa81f40f5"
+    }
+  ],
+  "name": "lân tuấn khải",
+  "phone": "0357060055",
+  "avatar": "avatar-1621852388227-991b25c7-949f-42a7-af7e-bbd23d253bc5.jpg",
   "email": "khai123",
   "password": "$2b$12$vqHbzSIHCpsIYVZPa0qrwuAfYlR5aXfzNMIjIDEEEMraZoJfkEBMS",
   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0NWE2Mzc5NDRjNjU4OWM5NWUwYjgiLCJpYXQiOjE2MTYxNDA4OTksImV4cCI6MTYxNjE0MDg5OX0.3kxajIsvARzhzgnem6-t_QZEPc-neKWZx5VXESVGJYs",
@@ -94,20 +34,48 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "6061ffc2d6909d36aca32012"
-  },
-  "created": [],
-  "liked": [],
-  "email": "Khailt6498@qưe.com",
-  "password": "$2b$12$/VHGX5zerz6BvsZf1u/XgeJXyD9SKdGzZoNTesGWXzXhgO7dFAxju",
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDYxZmZjMmQ2OTA5ZDM2YWNhMzIwMTIiLCJpYXQiOjE2MTcwMzUyMDIsImV4cCI6MTYxNzAzNTIwMn0.0D7tgdo4oPxEy5icU4U3rSKmVX8vP_tYJ3p8oS0PpqE",
-  "__v": 0
-},{
-  "_id": {
     "$oid": "605174084b1b413fd44fdc36"
   },
   "email": "khailt321",
   "password": "$2b$12$q49qXjh6kAddKvA9muGudOuEY9jCn0hhZd/olfsggef6fcGOuR7Ui",
   "created": [],
   "liked": []
+},{
+  "_id": {
+    "$oid": "60af6c7a7ce1ad3dc03d39b4"
+  },
+  "created": [],
+  "liked": [],
+  "email": "khailt62@wru.vn",
+  "password": "$2b$12$w9z2fccqWn/jkD8.WwOd/eFfN3SQAaZhLTt1cWwJ.cJRKp0IMQ7n.",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFmNmM3YTdjZTFhZDNkYzAzZDM5YjQiLCJpYXQiOjE2MjIxMDkzMDYsImV4cCI6MTYyMjEwOTMwNn0.KeEQTk5JoPJxjmI68veGl4K6BdJzBHWtGmsGjtetcPI",
+  "__v": 0,
+  "avatar": null,
+  "name": "Lâm Tuấn Khải",
+  "phone": "0357060055"
+},{
+  "_id": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "created": [],
+  "liked": [],
+  "email": "Khailt62@wru.vn",
+  "password": "$2b$12$8qFKgyi/55x/jBdmRuKOk.mk0LfHun/mN0FqWPcS6EBL0kT8axr5e",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJiOWY3MTIwNWEzNzBmMWM3ZWJmMzAiLCJpYXQiOjE2MjI5MDg3ODUsImV4cCI6MTYyMjkwODc4NX0.xfpc9WeDXohdlCQg_OA5BtdgJExKwuO6l9C6MmUvTew",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bf7abde22bbc18c8bce73e"
+  },
+  "created": [
+    {
+      "$oid": "60ceafc51ef4f80c181f7622"
+    }
+  ],
+  "liked": [],
+  "email": "khailt6498@gmail.com",
+  "password": "$2b$12$6/l1M9qC4tSmdmWHAEMe9u.0WmIgklmzFp1cTHU9CJSu45a2IDgkO",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJmN2FiZGUyMmJiYzE4YzhiY2U3M2UiLCJpYXQiOjE2MjMxNjE1MzMsImV4cCI6MTYyMzE2MTUzM30.Fyk5S_u_GpRaM5scCJeOd7fXd28Cgu2wikkGFQoADL8",
+  "__v": 0,
+  "avatar": "avatar-1623597550204-7b1a0902-4efd-4a67-8fdb-de6d9e619622.jpg"
 }]

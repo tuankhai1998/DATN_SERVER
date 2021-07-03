@@ -1,0 +1,199 @@
+[{
+  "_id": {
+    "$oid": "60d7ed5c8884382d64b5aea4"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7ed558884382d64b5aea3"
+  },
+  "messageBody": "Hallo",
+  "to": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:15:40.717Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:15:40.717Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7ed698884382d64b5aea5"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7ed558884382d64b5aea3"
+  },
+  "messageBody": "How are you",
+  "to": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:15:53.822Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:15:53.822Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7eefe0275d703f0667e4e"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7eef90275d703f0667e4d"
+  },
+  "messageBody": "Hallo",
+  "to": {
+    "$oid": "60bf7abde22bbc18c8bce73e"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:22:38.204Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:22:38.204Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7f0830275d703f0667e4f"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7ed558884382d64b5aea3"
+  },
+  "messageBody": "7",
+  "to": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:29:07.659Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:29:07.659Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7f09b0275d703f0667e50"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7ed558884382d64b5aea3"
+  },
+  "messageBody": "4",
+  "to": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:29:31.126Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:29:31.126Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7f1410275d703f0667e51"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7ed558884382d64b5aea3"
+  },
+  "messageBody": "3",
+  "to": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:32:17.784Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:32:17.784Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7f15f0275d703f0667e52"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7eef90275d703f0667e4d"
+  },
+  "messageBody": "123",
+  "to": {
+    "$oid": "60bf7abde22bbc18c8bce73e"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:32:47.154Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:32:47.154Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7f1e40275d703f0667e53"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7ed558884382d64b5aea3"
+  },
+  "messageBody": "Hgf",
+  "to": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:35:00.803Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:35:00.803Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d7f3420275d703f0667e54"
+  },
+  "messageStatus": false,
+  "chatRoom": {
+    "$oid": "60d7ed558884382d64b5aea3"
+  },
+  "messageBody": "U",
+  "to": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
+  "from": {
+    "$oid": "60bb9f71205a370f1c7ebf30"
+  },
+  "createdAt": {
+    "$date": "2021-06-27T03:40:50.812Z"
+  },
+  "updatedAt": {
+    "$date": "2021-06-27T03:40:50.812Z"
+  },
+  "__v": 0
+}]

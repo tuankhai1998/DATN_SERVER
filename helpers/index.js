@@ -85,6 +85,12 @@ const getLastMessage = async (messageID) => {
     }
 }
 
+const convertCityName = (cityCode) => {
+    if (cityCode == 1) return 'Hồ Chí Minh'
+    if (cityCode == 2) return 'Hà Nội'
+    return 'Đà Nẵng'
+}
+
 module.exports = {
     getUserCreated,
     getRoom,
@@ -92,7 +98,8 @@ module.exports = {
     getMessagesOfChatRoom,
     getUserSendMessage,
     getMembers,
-    getLastMessage
+    getLastMessage,
+    convertCityName
 }
 
 

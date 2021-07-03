@@ -1,126 +1,90 @@
 [{
   "_id": {
-    "$oid": "607a90268031f40c14f0b563"
+    "$oid": "60b8f56745e57f2b704da34d"
   },
   "address": {
     "loc": {
       "type": "Point",
       "coordinates": [
-        105.76935,
-        20.85184
+        105.79633799999999,
+        20.9844547
       ]
     },
     "name": {
-      "city": "Hà Nội",
-      "districts": "Thanh Oai",
-      "wardsAndStreet": "Cao Dương",
-      "any": "139, Thôn Mới"
-    }
-  },
-  "price": {
-    "water": {
-      "free": true
-    },
-    "electricity": {
-      "free": true
-    },
-    "room": {
-      "price": 5000000
-    },
-    "internet": {
-      "free": true
-    }
-  },
-  "hired": false,
-  "images": [
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240"
-  ],
-  "sex": 1,
-  "type": 1,
-  "createdBy": {
-    "$oid": "605173a14b1b413fd44fdc34"
-  },
-  "roomNum": 2,
-  "peoples": 2,
-  "createdAt": {
-    "$date": "2021-04-17T07:37:10.463Z"
-  },
-  "updatedAt": {
-    "$date": "2021-04-17T07:37:10.463Z"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "607a902f8031f40c14f0b564"
-  },
-  "address": {
-    "loc": {
-      "type": "Point",
-      "coordinates": [
-        105.76933,
-        20.85184
-      ]
-    },
-    "name": {
-      "city": "Hà Nội",
-      "districts": "Thanh Oai",
-      "wardsAndStreet": "Cao Dương",
-      "any": "139, Thôn Mới"
+      "city": "Hà Nội",
+      "districts": "Hà Đông",
+      "wardsAndStreet": "Nguyễn Trãi",
+      "any": "39, ngõ 31 , Lương Ngọc Quyến "
     }
   },
   "price": {
     "water": {
       "free": false,
-      "price": 2000
+      "price": 8000
+    },
+    "electricity": {
+      "free": false,
+      "price": 3500
+    },
+    "room": {
+      "free": true,
+      "price": 8000000
+    },
+    "internet": {
+      "free": false,
+      "price": 80000
     }
   },
   "hired": false,
   "images": [
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240"
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg",
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg",
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg",
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg"
   ],
   "sex": 2,
-  "type": 1,
+  "utilities": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    8
+  ],
+  "type": 3,
+  "roomNum": 3,
+  "peoples": 5,
+  "acreage": 75,
+  "phone": "0357060055",
+  "roomName": "Chung cư cao cấp Hà Đông, Hà Nội ",
+  "description": "Giới thiêu thông tin phòng",
   "createdBy": {
-    "$oid": "605173a14b1b413fd44fdc34"
+    "$oid": "60bf7abde22bbc18c8bce73e"
   },
-  "roomNum": 2,
-  "peoples": 2,
   "createdAt": {
-    "$date": "2021-04-17T07:37:19.928Z"
+    "$date": "2021-06-03T15:29:43.504Z"
   },
   "updatedAt": {
-    "$date": "2021-04-18T15:00:24.611Z"
+    "$date": "2021-07-03T04:00:51.196Z"
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "607a90398031f40c14f0b565"
+    "$oid": "60baebc05d64df236c65ab67"
   },
   "address": {
     "loc": {
       "type": "Point",
       "coordinates": [
-        105.76953,
-        20.85173
+        105.7825795,
+        21.0312538
       ]
     },
     "name": {
-      "city": "Hà Nội",
-      "districts": "Thanh Oai",
-      "wardsAndStreet": "Cao Dương",
-      "any": "139, Thôn Mới"
+      "city": "Hà Nội",
+      "districts": "Cầu Giấy",
+      "wardsAndStreet": "Dịch Vọng Hậu",
+      "any": "3, 82 , Duy Tân "
     }
   },
   "price": {
@@ -131,53 +95,64 @@
       "free": true
     },
     "room": {
-      "price": 5000000
+      "free": true,
+      "price": 7500000
     },
     "internet": {
       "free": true
     }
   },
+  "utilities": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+  ],
   "hired": false,
   "images": [
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240"
+    "room-1622862780962-23643fa1-d45e-4624-bca0-f4f2cb80a7b4.jpg",
+    "room-1622862782448-2e133eea-b1aa-42a7-89cc-15d28b0a87e8.jpg",
+    "room-1622862782680-ce0cedda-c0d2-4d31-9008-672136e39454.jpg",
+    "room-1622862783145-4cab3eaa-4b9e-4749-a711-70c0954cb3a5.jpg",
+    "room-1622862783693-30b15114-c588-450f-a899-9cb028d0cb45.jpg"
   ],
-  "sex": 1,
+  "sex": 0,
   "type": 1,
-  "createdBy": {
-    "$oid": "605173a14b1b413fd44fdc34"
-  },
   "roomNum": 2,
-  "peoples": 2,
+  "peoples": 5,
+  "acreage": 50,
+  "phone": "0357060055",
+  "roomName": "Phòng cho thuê Duy Tân, Cầu Giấy",
+  "description": "Phòng rộng, có điều hòa thoáng máy, tiền điện, nước có công tơ riêng tự đóng tiền.... \n",
+  "createdBy": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
   "createdAt": {
-    "$date": "2021-04-17T07:37:29.738Z"
+    "$date": "2021-06-05T03:13:04.358Z"
   },
   "updatedAt": {
-    "$date": "2021-04-17T07:37:29.738Z"
+    "$date": "2021-06-05T03:13:04.358Z"
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "607ada75d8c5d129b0c2b617"
+    "$oid": "60bb3f152f43083938c732b3"
   },
   "address": {
     "loc": {
       "type": "Point",
       "coordinates": [
-        105.86903,
-        20.45174
+        105.7825795,
+        21.0312538
       ]
     },
     "name": {
-      "city": "Hà Nội",
-      "districts": "Thanh Oai",
-      "wardsAndStreet": "Cao Dương",
-      "any": "139, Thôn Mới"
+      "city": "Hà Nội",
+      "districts": "Cầu Giấy",
+      "wardsAndStreet": "Dịch Vọng Hậu",
+      "any": "3, 82, Duy Tân"
     }
   },
   "price": {
@@ -188,53 +163,65 @@
       "free": true
     },
     "room": {
-      "price": 5000000
+      "free": true,
+      "price": 3500000
     },
     "internet": {
       "free": true
     }
   },
+  "utilities": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8
+  ],
   "hired": false,
   "images": [
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240"
+    "room-1622884114852-7e0a00a7-2d23-405f-a3b6-6468ea6c6129.jpg",
+    "room-1622884115369-8e1c81a8-0233-4e3a-9eee-088c31dfd83f.jpg",
+    "room-1622884116796-9a797417-36de-4115-bf61-ebc0ac7c7f11.jpg",
+    "room-1622884117422-8c2c2d75-a63a-4a21-b044-17124cb3ccb4.jpg",
+    "room-1622884117450-a5175633-087a-4b8d-8473-6564ec815b47.jpg"
   ],
-  "sex": 1,
+  "sex": 0,
   "type": 1,
-  "createdBy": {
-    "$oid": "605173a14b1b413fd44fdc34"
-  },
-  "roomNum": 2,
+  "roomNum": 3,
   "peoples": 2,
+  "acreage": 60,
+  "phone": "0357060055",
+  "roomName": "Any abc xyz ....",
+  "description": "Some thing ",
+  "createdBy": {
+    "$oid": "60545a637944c6589c95e0b8"
+  },
   "createdAt": {
-    "$date": "2021-04-17T12:54:13.712Z"
+    "$date": "2021-06-05T09:08:38.001Z"
   },
   "updatedAt": {
-    "$date": "2021-04-17T12:54:13.712Z"
+    "$date": "2021-06-05T09:08:38.001Z"
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "607ada85d8c5d129b0c2b618"
+    "$oid": "60ceafc51ef4f80c181f7622"
   },
   "address": {
     "loc": {
       "type": "Point",
       "coordinates": [
-        105.86933,
-        20.45174
+        105.75418920000001,
+        20.9426712
       ]
     },
     "name": {
-      "city": "Hà Nội",
-      "districts": "Thanh Oai",
-      "wardsAndStreet": "Cao Dương",
-      "any": "139, Thôn Mới"
+      "city": "Hà Nội",
+      "districts": "Hà Đông",
+      "wardsAndStreet": "Phú Lãm",
+      "any": "3"
     }
   },
   "price": {
@@ -245,91 +232,44 @@
       "free": true
     },
     "room": {
-      "price": 5000000
+      "free": true,
+      "price": 25000000
     },
     "internet": {
       "free": true
     }
   },
+  "utilities": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7
+  ],
   "hired": false,
   "images": [
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240"
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg",
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg",
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg",
+    "avatar-1621848862962-2c3417a0-cbe0-4832-97f4-8be6a3b3f653.jpg"
   ],
-  "sex": 1,
-  "type": 1,
+  "sex": 2,
+  "type": 3,
+  "roomNum": 4,
+  "peoples": 5,
+  "acreage": 265,
+  "phone": "19001002",
+  "roomName": "Chung cư quận Hà Đông, Hà Nội ",
+  "description": "Chung cu đẹp 😍",
   "createdBy": {
-    "$oid": "605173a14b1b413fd44fdc34"
+    "$oid": "60bf7abde22bbc18c8bce73e"
   },
-  "roomNum": 2,
-  "peoples": 2,
   "createdAt": {
-    "$date": "2021-04-17T12:54:29.614Z"
+    "$date": "2021-06-20T03:02:29.153Z"
   },
   "updatedAt": {
-    "$date": "2021-04-17T12:54:29.614Z"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "607ada90d8c5d129b0c2b619"
-  },
-  "address": {
-    "loc": {
-      "type": "Point",
-      "coordinates": [
-        106.86933,
-        20.45174
-      ]
-    },
-    "name": {
-      "city": "Hà Nội",
-      "districts": "Thanh Oai",
-      "wardsAndStreet": "Cao Dương",
-      "any": "139, Thôn Mới"
-    }
-  },
-  "price": {
-    "water": {
-      "free": true
-    },
-    "electricity": {
-      "free": true
-    },
-    "room": {
-      "price": 5000000
-    },
-    "internet": {
-      "free": true
-    }
-  },
-  "hired": false,
-  "images": [
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240",
-    "https://loremflickr.com/320/240"
-  ],
-  "sex": 1,
-  "type": 1,
-  "createdBy": {
-    "$oid": "605173a14b1b413fd44fdc34"
-  },
-  "roomNum": 2,
-  "peoples": 2,
-  "createdAt": {
-    "$date": "2021-04-17T12:54:40.198Z"
-  },
-  "updatedAt": {
-    "$date": "2021-04-17T12:54:40.198Z"
+    "$date": "2021-07-03T07:38:05.798Z"
   },
   "__v": 0
 }]

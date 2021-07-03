@@ -24,6 +24,7 @@ module.exports = {
         rooms: (_, args) => {
             let data = JSON.parse(JSON.stringify(args));
             let { sortBy, query, page, per_page } = data;
+            console.log(args)
             let newDataSearch = formatProperty(query)
             if (newDataSearch && newDataSearch.addressName) {
                 let newAddressName = formatProperty(newDataSearch.addressName);

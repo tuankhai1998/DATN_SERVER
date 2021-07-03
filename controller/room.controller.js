@@ -1,7 +1,7 @@
 const userModel = require('../model/user.model');
 const roomModel = require('../model/room.model');
 
-const { getUserCreated, getRoom } = require("../helpers")
+const { getUserCreated, getRoom, convertCityName } = require("../helpers")
 
 
 module.exports = {
@@ -22,8 +22,6 @@ module.exports = {
     update: async (data) => {
         try {
             let roomUpdated = await roomModel.findByIdAndUpdate({ _id: data._id }, { $set: data }, { new: true })
-
-            console.log(roomUpdated)
             return {
                 ...roomUpdated._doc,
                 createdBy: () => getUserCreated(roomUpdated._doc.createdBy),
