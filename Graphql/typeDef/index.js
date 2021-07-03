@@ -21,7 +21,7 @@ const typeDefs = gql`
         likedRoom(_idRoom: ID!) : User
 
         createRoom(room: roomInput ) : Room!
-        updateRoom( data: roomInput) : Room!
+        updateRoom(_id: ID!, room: roomInput, imagesName: [String]) : Room!
       
         createRoomChat (userID: ID!) : chatRoom
         sendMessage(data: messagesInput) : MessageContent
@@ -174,6 +174,7 @@ const typeDefs = gql`
     type chatRoom {
         messages: [MessageContent],
         members: [User!]
+        lastMessage: MessageContent,
         _id: ID
     }
 

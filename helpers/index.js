@@ -37,7 +37,7 @@ const formatProperty = (object) => {
 
 const getMessagesOfChatRoom = async (messagesID) => {
     try {
-        let messages = await messageModel.find({ _id:  messagesID  })
+        let messages = await messageModel.find({ _id: messagesID })
         return messages.map(message => ({
             ...message._doc,
             user: () => getUserSendMessage(message._doc.user)
@@ -50,8 +50,13 @@ const getMessagesOfChatRoom = async (messagesID) => {
 const getUserSendMessage = async (userID) => {
     try {
         let user = await userModel.findById({ _id: userID })
-        return user
+        return {
+            ...user._doc,
+            password: null,
+            refreshToken: null
+        }
     } catch (error) {
+
         throw error
     }
 }
@@ -68,13 +73,26 @@ const getMembers = async (listUserID) => {
 }
 
 
+const getLastMessage = async (messageID) => {
+    try {
+        let message = await messageModel.findById({ _id: messageID })
+        return {
+            ...message._doc,
+            user: () => getUserSendMessage(message._doc.user)
+        }
+    } catch (error) {
+        throw new Error(`get message ${error}`)
+    }
+}
+
 module.exports = {
     getUserCreated,
     getRoom,
     formatProperty,
     getMessagesOfChatRoom,
     getUserSendMessage,
-    getMembers
+    getMembers,
+    getLastMessage
 }
 
 

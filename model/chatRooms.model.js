@@ -7,6 +7,10 @@ const chatRoom = new Schema({
             ref: 'Users'
         }
     ],
+    lastMessage: {
+        type: Schema.Types.ObjectId,
+        ref: 'MessageContent',
+    },
     messages: [{
         type: Schema.Types.ObjectId,
         ref: 'MessageContent'

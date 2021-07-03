@@ -5,9 +5,9 @@ const messagesController = require("../../controller/messages.controller");
 
 module.exports = {
     Query: {
-        getAllMessageOfChatRoom: (_, { _id }, context) => {
+        getAllMessageOfChatRoom: async (_, { _id }, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let messages = messagesController.messages(_id)
+            let messages = await messagesController.messages(_id)
             return messages
         },
 

@@ -2,12 +2,13 @@ const chatRoomModel = require('../model/chatRooms.model');
 const messageModal = require('../model/message.model');
 const mongoose = require('mongoose');
 
-const { getMessagesOfChatRoom, getUserSendMessage, getMembers } = require('../helpers');
+const { getMessagesOfChatRoom, getUserSendMessage, getMembers, getLastMessage } = require('../helpers');
 
 module.exports = {
     createRoomChat: async (data) => {
         try {
             let members = data.map(userId => mongoose.Types.ObjectId(userId));
+
             let newChatRoom = new chatRoomModel({ members })
             let checkChatRoom = await chatRoomModel.findOne({ $and: [{ members: members[0] }, { members: members[1] }] })
             if (!checkChatRoom) {
@@ -28,6 +29,7 @@ module.exports = {
             return allChatRoom.map(chatRoom => (
                 {
                     ...chatRoom._doc,
+                    lastMessage: () => getLastMessage(chatRoom._doc.lastMessage),
                     messages: () => getMessagesOfChatRoom(chatRoom._doc.messages),
                     members: () => getMembers(chatRoom._doc.members)
                 }
@@ -44,7 +46,7 @@ module.exports = {
 
         try {
             let message = await newMessage.save()
-            await chatRoomModel.findByIdAndUpdate({ _id: chatRoom }, { $push: { "messages": newMessage._doc._id } }, { upsert: true, new: true })
+            await chatRoomModel.findByIdAndUpdate({ _id: chatRoom }, { $push: { "messages": newMessage._doc._id }, lastMessage: newMessage._doc._id }, { upsert: true, new: true })
             return {
                 ...message._doc,
                 from: () => getUserSendMessage(message._doc.from),
@@ -58,6 +60,7 @@ module.exports = {
     messages: async (_id) => {
         try {
             let allMessages = await messageModal.find({ chatRoom: _id })
+
             return allMessages.map(message => {
                 return {
                     ...message._doc,

@@ -6,8 +6,6 @@ const { getUserCreated, getRoom } = require("../helpers")
 
 module.exports = {
     create: async (userId, data) => {
-
-        console.log(data.address)
         let newRoom = new roomModel({ ...data, createdBy: userId })
         try {
             let createdRoom = await newRoom.save()
@@ -17,7 +15,6 @@ module.exports = {
                 createdBy: () => getUserCreated(newRoom._doc.createdBy),
             }
         } catch (error) {
-            console.log(error)
             throw error
         }
     },
@@ -25,6 +22,8 @@ module.exports = {
     update: async (data) => {
         try {
             let roomUpdated = await roomModel.findByIdAndUpdate({ _id: data._id }, { $set: data }, { new: true })
+
+            console.log(roomUpdated)
             return {
                 ...roomUpdated._doc,
                 createdBy: () => getUserCreated(roomUpdated._doc.createdBy),
@@ -37,8 +36,6 @@ module.exports = {
     currentRoom: async (_id) => {
         try {
             let room = await roomModel.findById({ _id });
-
-            console.log(room)
             return {
                 ...room._doc,
                 createdBy: () => getUserCreated(room._doc.createdBy),
@@ -52,7 +49,7 @@ module.exports = {
         let { page, per_page, sex, type, addressName, roomNum, peoples, maxPrice, minPrice, sort, longitude, latitude, multiDistricts } = args;
 
         let checkSearch = () => {
-            let dataSearch = {};
+            let dataSearch = { hired: false };
             if (sex) dataSearch = { ...dataSearch, sex };
             if (type) dataSearch = { ...dataSearch, type };
             if (peoples) dataSearch = { ...dataSearch, peoples: { $gte: peoples } };
@@ -62,7 +59,7 @@ module.exports = {
             return dataSearch
         }
 
-        let dataSearch = await checkSearch()
+        let dataSearch = checkSearch()
         if (!page) page = 0;
         let skip = page > 0 ? (page - 1) * per_page : page * per_page;
         let checkAddress = () => {
@@ -76,7 +73,7 @@ module.exports = {
             return addressSearch;
         }
 
-        let addressNameSearch = await checkAddress();
+        let addressNameSearch = checkAddress();
 
         try {
             let rooms;
@@ -110,6 +107,7 @@ module.exports = {
                 rooms = await roomModel.find({ 'address.name.districts': { $in: [...multiDistricts] }, ...dataSearch }).sort(sort).limit(per_page).skip(skip)
             }
             else { rooms = await roomModel.find({ ...dataSearch }).sort(sort).limit(per_page).skip(skip) }
+
             return rooms.map(room => ({
                 ...room._doc,
                 createdAt: () => `${new Date(room._doc.createdAt)}`,

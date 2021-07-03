@@ -57,26 +57,12 @@ module.exports = {
             let roomCreated = await roomController.create(context._id, { ...args.room, images: listImages })
             return roomCreated
         },
-        updateRoom: (_, args, context) => {
-            let data = JSON.parse(JSON.stringify(args));
-            const { images } = data;
-            let listImages = [];
-            if (avatar) {
-                try {
-                    images.forEach(async (image) => {
-                        const { createReadStream, filename, mimetype, encoding } = await image;
-                        let imageName = `room-${Date.now()}-${filename}`;
-                        imageNames.push(imageName);
-                        const stream = await createReadStream();
-                        await storeUpload({ stream, filename: imageName, mimetype, encoding });
-                    })
-
-                } catch (error) {
-                    console.log(error)
-                }
-            }
+        updateRoom: async (_, args, context) => {
             if (!context.isAuth) throw new AuthenticationError("unauthorized")
-            let roomUpdated = roomController.update({ ...data, images: listImages })
+            const { images } = args.room;
+            let listImages = args.imagesName;
+            let listImagesUpload = images && images.length > 0 ? await uploadListImage(images) : [];
+            let roomUpdated = await roomController.update({ ...args.room, images: [...listImages, ...listImagesUpload], _id: args._id });
             return roomUpdated
         },
 
